@@ -1,0 +1,21 @@
+{
+  "name": "DeepNgRoot",
+  "propertyRoot": true,
+  "identifier": "deep.ng.root",
+  "description": "Base Angular microservice",
+  "version": "0.0.1",
+  "author": {
+    "name": "Mitoc Group",
+    "email": "hello@mitocgroup.com"
+  },
+  "contributors": [
+    {
+      "name": "Maxim Ponomariov",
+      "email": "mponomariov@mitocgroup.com"
+    }
+  ],
+  "website": "https://www.deep.mg",
+  "email": "hello@mitocgroup.com",
+  "dependencies": {
+  }
+}

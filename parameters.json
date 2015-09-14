@@ -1,0 +1,25 @@
+{
+  "frontend" : {},
+  "backend" : {},
+  "globals": {
+    "userProviderEndpoint": {
+      "displayName": "User Provider Endpoint",
+      "type": "string",
+      "required": true,
+      "pattern": "^@[^:]+:.+$",
+      "example": "@deep.mg.auth:user-retrieve"
+    },
+    "logDrivers|sentry|dsn": {
+      "displayName": "Sentry DSN",
+      "type": "string",
+      "required": false,
+      "pattern": "^https?://[^:]+(:[^@]+)?@app\\.getsentry\\.com/[0-9]+$"
+    },
+    "security|identityProviders|www.amazon.com": {
+      "displayName": "Amazon Identity Provider",
+      "type": "string",
+      "required": true,
+      "example": "amzn1.application.xxxxx"
+    }
+  }
+}
