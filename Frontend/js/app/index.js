@@ -16,7 +16,6 @@ export function bootstrap() {
       angular.bootstrap(document, [moduleName], {strictDi: true});
 
     } catch (e) {
-      console.log(e);
       DeepFramework.Kernel.container.get('log').log(e);
     }
   });

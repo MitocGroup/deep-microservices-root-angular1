@@ -9,7 +9,7 @@ angular.module(moduleName)
 
         var listener = function(event, toState) {
 
-          var title = 'Default Title';
+          var title = 'It works!';
           if (toState.data && toState.data.pageTitle) title = toState.data.pageTitle;
 
           $timeout(function() {
