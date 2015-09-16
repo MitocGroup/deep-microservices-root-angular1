@@ -11,8 +11,7 @@ subpath_run_cmd ${__SRC_PATH} "$__CMD" "Backend"
 
 ### Merge Coverage results ###
 istanbul-combine -d ${__COVERAGE_PATH} -r lcov -p both \
-  ${__SRC_PATH}Frontend/coverage/*/*.json \
-  ${__SRC_PATH}Backend/coverage/*/*.json
+  ${__SRC_PATH}Frontend/coverage/*/*.json
 
 ### Upload Coverage info to Codacy ###
 cat ${__COVERAGE_PATH}"/lcov.info" | codacy-coverage
