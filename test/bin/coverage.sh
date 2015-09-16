@@ -9,6 +9,10 @@ __CMD='npm run coverage'
 subpath_run_cmd ${__SRC_PATH} "$__CMD" "Frontend"
 subpath_run_cmd ${__SRC_PATH} "$__CMD" "Backend"
 
+echo "__SRC_PATH:"
+cd ${__SRC_PATH}
+ls -l
+
 ### Merge Coverage results ###
 istanbul-combine -d ${__COVERAGE_PATH} -r lcov -p both \
   ${__SRC_PATH}Frontend/coverage/*/*.json
