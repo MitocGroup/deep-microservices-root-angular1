@@ -15,7 +15,7 @@ ls -l
 
 ### Merge Coverage results ###
 istanbul-combine -d ${__COVERAGE_PATH} -r lcov -p both \
-  ${__SRC_PATH}Frontend/coverage/*/*.json
+  ${__SRC_PATH}Frontend/coverage/*/coverage-final.json
 
 ### Upload Coverage info to Codacy ###
 cd ${__COVERAGE_PATH}
