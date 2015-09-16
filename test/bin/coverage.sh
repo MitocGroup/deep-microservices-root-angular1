@@ -14,11 +14,14 @@ istanbul-combine -d ${__COVERAGE_PATH} -r lcov -p both \
   ${__SRC_PATH}Frontend/coverage/*/*.json
 
 ### Upload Coverage info to Codacy ###
+cd ${__COVERAGE_PATH}
+ls
+
 cat ${__COVERAGE_PATH}"/lcov.info" | codacy-coverage
 cat ${__COVERAGE_PATH}"/lcov.info" | coveralls
-
-### Cleanup! ###
-
-__CMD='rm -rf ./coverage'
-
-subpath_run_cmd ${__SRC_PATH} "$__CMD"
+#
+#### Cleanup! ###
+#
+#__CMD='rm -rf ./coverage'
+#
+#subpath_run_cmd ${__SRC_PATH} "$__CMD"
