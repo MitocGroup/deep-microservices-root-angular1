@@ -5,7 +5,7 @@
   "scripts": {
     "install": "echo \"Error: no install specified\" && exit 0",
     "test": "echo \"Error: no test specified\" && exit 0",
-    "coverage": "echo \"Error: no coverage specified\" && exit 0"
+    "coverage": "echo \"Error: no coverage for frontend\" && exit 0"
   },
   "dependencies": {},
   "devDependencies": {},

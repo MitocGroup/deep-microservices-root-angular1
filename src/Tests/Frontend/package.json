@@ -4,8 +4,8 @@
   "description": "DEEP Micro Services Root Frontend",
   "scripts": {
     "postinstall": "jspm install",
-    "test": "karma start config.karma.js"
-    "test": "karma start config.karma.js"
+    "test": "karma start config.karma.js",
+    "coverage": "echo \"Error: no coverage specified\" && exit 0"
   },
   "jspm": {
     "directories": {
