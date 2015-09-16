@@ -18,7 +18,7 @@ angular.module(moduleName)
         };
 
         $rootScope.$on('$stateChangeSuccess', listener);
-      }
+      },
     };
   }
 ]);

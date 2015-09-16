@@ -11,14 +11,14 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['jasmine'],
+    frameworks: ['jspm', 'jasmine'],
 
     // list of files / patterns to load in the browser
     files: [
       'Frontend/js/lib/angular.js',
+      'Frontend/js/lib/angular-mocks.js',
       'Frontend/js/lib/angular-ui-router.js',
       'Frontend/js/lib/system.js',
-
       //'Frontend/js/lib/system-polyfills.js',
       //'Frontend/js/lib/traceur.min.js',
       //'Frontend/js/lib/deep-framework.js',
@@ -36,39 +36,37 @@ module.exports = function(config) {
     ],
 
     // jspm configuration
-    //jspm: {
-    //  config: 'Tests/Frontend/config.test.js',
-    //  packages: 'Tests/Frontend/vendor/',
-    //  useBundles: false,
-    //  paths: {
-    //    '*': '*.js',
-    //    'github:*': 'Tests/Frontend/vendor/github/*.js',
-    //    'npm:*': 'Tests/Frontend/vendor/npm/*.js',
-    //  },
-    //  loadFiles: [
-    //    'Tests/Frontend/angular/**/*.spec.js',
-    //    'Frontend/js/app/angular/index.js',
-    //  ],
-    //  serveFiles: [
-    //    'Frontend/js/app/**/*.js',
-    //  ],
-    //},
-
-    proxies: {
+    jspm: {
+      config: 'Tests/Frontend/config.test.js',
+      packages: 'Frontend/js/lib/',
+      //  useBundles: false,
+      //  paths: {
+      //    '*': '*.js',
+      //    'github:*': 'Frontend/js/lib/github/*.js',
+      //    'npm:*': 'Frontend/js/lib/npm/*.js',
+      //  },
+      loadFiles: [
+        'Tests/Frontend/angular/**/*.spec.js',
+        'Frontend/js/app/index.js',
+      ],
+      serveFiles: [
+        'Frontend/**/*.js',
+      ],
     },
+
+    proxies: {},
 
     client: {
       captureConsole: true,
     },
 
     // list of files to exclude
-    exclude: [
-    ],
+    exclude: [],
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'Frontend/js/app/angular/**/*.js': ['babel','coverage'],
+      'Frontend/js/app/**/*.js': ['babel', 'coverage'],
       'Tests/Frontend/angular/**/*.spec.js': ['babel'],
       '**/views/directives/*.html': 'ng-html2js',
     },
