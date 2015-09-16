@@ -43,10 +43,7 @@ before_install:
 - npm install -g karma-chrome-launcher
 - npm install -g karma-safari-launcher
 - npm install -g karma-ng-html2js-preprocessor
-#- if [ -f 'package.json' ];
-#    then echo "package.json already exists";
-#    else cp test/package.json . ;
-#  fi
-#
+cp test/package.json .
+
 #after_success:
 #- npm run coverage

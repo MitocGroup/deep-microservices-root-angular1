@@ -19,15 +19,15 @@ module.exports = function(config) {
       'Frontend/js/lib/angular-ui-router.js',
       //'Frontend/js/lib/deep-framework.js',
       'Frontend/js/lib/system.js',
-      'Frontend/js/lib/system-polyfills.js',
-      'Frontend/js/lib/traceur.min.js',
+      //'Frontend/js/lib/system-polyfills.js',
+      //'Frontend/js/lib/traceur.min.js',
 
       //load the polyfill in your Karma, needed since SystemJS depends on Function.bind(), which is not supported in PhantomJS:
       //'node_modules/karma-babel-preprocessor/node_modules/babel-core/browser-polyfill.js',
 
       //mocking DeepFramework
-      'Tests/Frontend/lib/DeepFramework.js',
-      'Tests/Frontend/mock/lib/DeepFramework.js',
+      //'Tests/Frontend/lib/DeepFramework.js',
+      //'Tests/Frontend/mock/lib/DeepFramework.js',
       //{pattern: 'Tests/Frontend/mock/data/*.json', watched: true, served: true, included: false,},
 
       //include the directory where directive templates are stored.
