@@ -16,7 +16,7 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       'Frontend/js/lib/angular.js',
-      'Frontend/js/lib/angular-mocks.js',
+      //'Frontend/js/lib/angular-mocks.js',
       'Frontend/js/lib/angular-ui-router.js',
       'Frontend/js/lib/system.js',
       //'Frontend/js/lib/system-polyfills.js',
