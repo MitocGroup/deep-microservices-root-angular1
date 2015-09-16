@@ -6,18 +6,17 @@ source $(dirname $0)/_head.sh
 
 __CMD='npm run coverage'
 
-subpath_run_cmd ${__SRC_PATH} "$__CMD"
+subpath_run_cmd ${__SRC_PATH} "$__CMD" "Frontend"
+subpath_run_cmd ${__SRC_PATH} "$__CMD" "Backend"
 
 ### Merge Coverage results ###
-
-COVERAGE_PATH=${__SCRIPT_PATH}"/../coverage"
-
-istanbul-combine -d ${COVERAGE_PATH} -r lcov -p both \
-  ${__SRC_PATH}/coverage/*.json
+istanbul-combine -d ${__COVERAGE_PATH} -r lcov -p both \
+  ${__SRC_PATH}Frontend/coverage/*/*.json \
+  ${__SRC_PATH}Backend/coverage/*/*.json
 
 ### Upload Coverage info to Codacy ###
-cat ${COVERAGE_PATH}"/lcov.info" | codacy-coverage
-cat ${COVERAGE_PATH}"/lcov.info" | coveralls
+cat ${__COVERAGE_PATH}"/lcov.info" | codacy-coverage
+cat ${__COVERAGE_PATH}"/lcov.info" | coveralls
 
 ### Cleanup! ###
 
