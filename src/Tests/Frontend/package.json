@@ -1,10 +1,10 @@
 {
-  "name": "DeepNgRoot",
+  "name": "DeepNgRootFrontend",
   "version": "0.0.0",
-  "description": "DEEP Micro Services Billing",
+  "description": "DEEP Micro Services Root Frontend",
   "scripts": {
     "postinstall": "jspm install",
-    "test": "karma start config.test.js"
+    "test": "karma start config.karma.js"
   },
   "jspm": {
     "directories": {

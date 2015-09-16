@@ -1,0 +1,12 @@
+{
+  "name": "DeepNgRootBackend",
+  "version": "0.0.0",
+  "description": "DEEP Micro Services Root Backend",
+  "scripts": {
+    "install": "echo \"Error: no install specified\" && exit 0",
+    "test": "echo \"Error: no test specified\" && exit 0"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "private": true
+}
