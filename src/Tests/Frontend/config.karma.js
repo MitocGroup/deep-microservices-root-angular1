@@ -15,36 +15,27 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'Frontend/js/lib/angular.js',
-      //'Frontend/js/lib/angular-mocks.js',
-      'Frontend/js/lib/angular-ui-router.js',
-      'Frontend/js/lib/system.js',
-      //'Frontend/js/lib/system-polyfills.js',
-      //'Frontend/js/lib/traceur.min.js',
-      //'Frontend/js/lib/deep-framework.js',
+      'Tests/Frontend/vendor/github/angular/bower-angular@1.4.0/angular.js',
+      'Tests/Frontend/vendor/github/angular/bower-angular-mocks@1.4.4/angular-mocks.js',
+      'Tests/Frontend/vendor/github/angular-ui/ui-router@0.2.15/angular-ui-router.js',
+      'Tests/Frontend/vendor/system.js',
 
-      //load the polyfill in your Karma, needed since SystemJS depends on Function.bind(), which is not supported in PhantomJS:
-      //'node_modules/karma-babel-preprocessor/node_modules/babel-core/browser-polyfill.js',
-
-      //mocking DeepFramework
-      //'Tests/Frontend/lib/DeepFramework.js',
-      //'Tests/Frontend/mock/lib/DeepFramework.js',
-      //{pattern: 'Tests/Frontend/mock/data/*.json', watched: true, served: true, included: false,},
+      'Tests/Frontend/lib/DeepFramework.js',
+      'Tests/Frontend/mock/lib/DeepFramework.js',
 
       //include the directory where directive templates are stored.
-      //'**/views/directives/*.html',
+      '**/views/directives/*.html',
     ],
 
     // jspm configuration
     jspm: {
       config: 'Tests/Frontend/config.test.js',
-      packages: 'Frontend/js/lib/',
-      //  useBundles: false,
-      //  paths: {
-      //    '*': '*.js',
-      //    'github:*': 'Frontend/js/lib/github/*.js',
-      //    'npm:*': 'Frontend/js/lib/npm/*.js',
-      //  },
+      packages: 'Tests/Frontend/vendor/',
+      useBundles: false,
+      paths: {
+        'github:*': 'Tests/Frontend/vendor/github/*.js',
+        'npm:*': 'Tests/Frontend/vendor/npm/*.js',
+      },
       loadFiles: [
         'Tests/Frontend/angular/**/*.spec.js',
         'Frontend/js/app/index.js',

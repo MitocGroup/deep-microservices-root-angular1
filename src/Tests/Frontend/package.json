@@ -10,7 +10,7 @@
     "directories": {
       "baseURL": "..",
       "lib": "",
-      "packages": "../../Frontend/js/lib/",
+      "packages": "vendor",
       "ss": ""
     },
     "configFile": "config.test.js",
