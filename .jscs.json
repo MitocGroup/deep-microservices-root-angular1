@@ -4,7 +4,8 @@
   "excludeFiles": [
     "./src/DeepNgRoot/Frontend/js/lib/*",
     "./src/DeepNgRoot/Tests/Frontend/lib/*",
-    "./src/DeepNgRoot/Tests/Frontend/mock/lib/*"
+    "./src/DeepNgRoot/Tests/Frontend/mock/lib/*",
+    "./src/DeepNgRoot/Tests/Frontend/vendor/*"
   ],
   "requirePaddingNewLinesAfterBlocks": {
     "allExcept": [
