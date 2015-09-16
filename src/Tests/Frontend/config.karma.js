@@ -11,13 +11,16 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['jspm', 'jasmine'],
+    frameworks: ['jasmine'],
 
     // list of files / patterns to load in the browser
     files: [
-      'Tests/Frontend/vendor/github/angular/bower-angular@1.4.0/angular.js',
-      'Tests/Frontend/vendor/github/angular/bower-angular-mocks@1.4.5/angular-mocks.js',
-      'Tests/Frontend/vendor/github/angular-ui/ui-router@0.2.15/angular-ui-router.js',
+      'Frontend/js/lib/angular.js',
+      'Frontend/js/lib/angular-ui-router.js',
+      //'Frontend/js/lib/deep-framework.js',
+      'Frontend/js/lib/system.js',
+      'Frontend/js/lib/system-polyfills.js',
+      'Frontend/js/lib/traceur.min.js',
 
       //load the polyfill in your Karma, needed since SystemJS depends on Function.bind(), which is not supported in PhantomJS:
       //'node_modules/karma-babel-preprocessor/node_modules/babel-core/browser-polyfill.js',
@@ -25,30 +28,30 @@ module.exports = function(config) {
       //mocking DeepFramework
       'Tests/Frontend/lib/DeepFramework.js',
       'Tests/Frontend/mock/lib/DeepFramework.js',
-      {pattern: 'Tests/Frontend/mock/data/*.json', watched: true, served: true, included: false,},
+      //{pattern: 'Tests/Frontend/mock/data/*.json', watched: true, served: true, included: false,},
 
       //include the directory where directive templates are stored.
-      '**/views/directives/*.html',
+      //'**/views/directives/*.html',
     ],
 
     // jspm configuration
-    jspm: {
-      config: 'Tests/Frontend/config.test.js',
-      packages: 'Tests/Frontend/vendor/',
-      useBundles: false,
-      paths: {
-        '*': '*.js',
-        'github:*': 'Tests/Frontend/vendor/github/*.js',
-        'npm:*': 'Tests/Frontend/vendor/npm/*.js',
-      },
-      loadFiles: [
-        'Tests/Frontend/angular/**/*.spec.js',
-        'Frontend/js/app/angular/index.js',
-      ],
-      serveFiles: [
-        'Frontend/js/app/**/*.js',
-      ],
-    },
+    //jspm: {
+    //  config: 'Tests/Frontend/config.test.js',
+    //  packages: 'Tests/Frontend/vendor/',
+    //  useBundles: false,
+    //  paths: {
+    //    '*': '*.js',
+    //    'github:*': 'Tests/Frontend/vendor/github/*.js',
+    //    'npm:*': 'Tests/Frontend/vendor/npm/*.js',
+    //  },
+    //  loadFiles: [
+    //    'Tests/Frontend/angular/**/*.spec.js',
+    //    'Frontend/js/app/angular/index.js',
+    //  ],
+    //  serveFiles: [
+    //    'Frontend/js/app/**/*.js',
+    //  ],
+    //},
 
     proxies: {
     },

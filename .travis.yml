@@ -1,0 +1,52 @@
+language: node_js
+sudo: false
+node_js:
+- '0.12'
+
+cache:
+  directories:
+  - "$(npm root -g)"
+
+branches:
+  only:
+  - master
+  - stage
+  - test
+  - dev
+
+env:
+  global:
+  - secure: "sLLcou8Q1CKkTXopJ1Pi1tgBJLJ7DtHEktdf1+9NLQOXHTZHMiSjesQzmjhiLyiQ37ti///lJIde2NPlXqU94VcK9GO4YMTko0SfjV8vveUq3LDmPFLDlJ1TaCE1Y5VX0Ya9Z46tw4X9+jgV0NM9h/k//pH98JzR5b4yBqGDlG8aCiKGhMfubTD2gBDtO7hRxnDBtQ9jVxUtKfFyR3xy54AsSbMtPNqVLOev1QBLZnKtFpU5FNVjpZHBkHFjZAPcGQQlqzYAnG/JB/QSCx41eVNU4aHgnXxBlt+xvxz33Q32kPePG7gkajxppx640bBaqKcKTKXI+j7W3HHvgO2odNFeFkqjkunj9T6W4hLkfxFls8UwEn6skSA8UlWeyY/nDaHMp52P3btWMmN5KtQRCfW5jU6g8y2nQjHVEEcoeoMSNUdkf6x8MdYadKrAdzwe/kAjKD+Vxz6vjEP2qc3VqMYp69tU9jbe2+fDotESFyC8P8e6/raCHEkWLLmGAETjyavJgGqnbz1yZo3KuLB7Bf4LLzZcXKPVtJ4y4ycdMDNNLiwEAOvGY7rIwQTpkWsKLrawK8lCnNjistt+D1jbn0+v/d7Vsu8BKBcol95T69lsURWjD75OXlQ3KWmly1G6P0ZhTV1kR4vAjDHQ6aR0o/zy6e3XlmwvJqRK9rOUYKE="
+  - secure: "eqqEwpKCgOUaLJIhA+2XsPR+Ep1ODuBfzY4xbuUTIBV01/7YYhWyFB8wGMgu1Ot2cLKzC+MnTUuq3UK7gwKJZj0hL3DJgzwWCAAzMzcyOXAuQTtSJ9n6KDPucHuEU+hRUbvojZ6fM+UzujPLZQEwpJ9WO9jkJIr7W9msTx19gLs+ZdREzfTh78ECFsmWCm74QWwx5soqWNAcE7dhToWpYnnyXvY+GkBo9GC7WmsisO5UIPilLOr06AjldYM1vyGfpmGHk7JG6bFEPpX1AQy5dpYL2R1HShscOkDy1E+zwyB+xoAyx916VOObvM7ngc/LXpmG3Oka2QsCK0+GJO4fAz7dphezHN9FIYIFHxBKRMlR3gIGrLYEDb0C1rQxJ3DnuGC1GftXNFF5ClIaNAEWf6mID5yhJNcSrLlopu96EMZDmvWSF7UlkNE8dzSrovQsGQL6wG9f7fvafDb5cI2QL2+BG+bXdLlwJo29t4O/KvaLmSqQJMmHmmhGEUdcSfV/JIUKlHWGxcFpXouF7US6v0THjqCE/oJULuokJj140EvUG/B63Ftultw2uIpt1UuVwbyVoXGIpOPRf3FEKRYwcv43lFxLg8YL/4LHolKC4aE8nm3dhL0UIJFF1D6zkeNHoTrVAu48HHbPmZPucMhAe/xLLQQlw4Q812mLqdkYPI0="
+  - secure: "nJoH+nYvTCKFK45kj5DbuU5k8tJPQxyRNxT36e0rcNSEo2PwEoSbtcaaEhXOiymf+sDjRvB3AixkDm4B5drEzfPRdb9ls5DSPM/Ip+HUStyGHetO2psz8FcXzg5nZXNIvUARVHr9klocNnFwVBVSh/O9iwDgPN2UBzFqRbdYda1b5VY65h9wcahJA/r6IeeNmFAS59bVq463GWZ7jmKM6+DUUlsUr8HybBv1V/9rG8kgkWWu563FiQuSLXX6QQhyeptW1y6kbFt1p99YOuEAz5Mexq5Rz2lhFrV4l/yhNxbi8n54TVrXz2PmRIJ4ohnARpBNZ8LVSFo0AN57k6Xz07vcyUsi6yA8noMd8LWKK6jp+gmbKpRsAPNPTZ/ndT/rLr1IlKCjEgt7n1fv0QygrMY+BlTHPqzy0fiX4HkofXQl5K2SQzQ8TAhMGx3bw06yNXyOEIVaaLAdv31wH7Lvg7sA0g6WCxFSzBTaO4FAO2huWvcGMBusMio5/AJZu72uzED8s4xRKvHjrnzI/aNb7aUrXMzsaAKWvNbYJvhF1fnr/Sntu2EPBlc3SDuAAs5y//tLfeFyja/X/JRUzbu793M2xCRnbjIqdmPtwXLuJkqNPAUCFkisLyURvb3dfKx4UZtXgdVilwSGm1+Zw9L+sYq6HVh2E2RHiXhhHIf20hg="
+
+before_install:
+- npm install -g jspm
+- npm install -g babel
+- npm install -g browserify
+- npm install -g mocha
+- npm install -g mocha-babel
+- npm install -g istanbul
+- npm install -g coveralls
+- npm install -g codacy-coverage
+- npm install -g istanbul-combine
+- npm install -g isparta
+- npm install -g jasmine-core
+- npm install -g karma
+- npm install -g karma-jspm
+- npm install -g karma-jasmine
+- npm install -g karma-babel-preprocessor
+- npm install -g karma-coverage
+- npm install -g karma-verbose-reporter
+- npm install -g phantomjs
+- npm install -g karma-phantomjs-launcher
+- npm install -g karma-chrome-launcher
+- npm install -g karma-safari-launcher
+- npm install -g karma-ng-html2js-preprocessor
+#- if [ -f 'package.json' ];
+#    then echo "package.json already exists";
+#    else cp test/package.json . ;
+#  fi
+#
+#after_success:
+#- npm run coverage

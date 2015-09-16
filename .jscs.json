@@ -1,0 +1,14 @@
+{
+  "preset": "airbnb",
+  "requireCamelCaseOrUpperCaseIdentifiers": "ignoreProperties",
+  "excludeFiles": [
+    "./src/Frontend/js/lib/*",
+    "./src/Tests/Frontend/lib/*",
+    "./src/Tests/Frontend/mock/lib/*"
+  ],
+  "requirePaddingNewLinesAfterBlocks": {
+    "allExcept": [
+      "inCallExpressions"
+    ]
+  }
+}
