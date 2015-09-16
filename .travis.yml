@@ -44,7 +44,7 @@ before_install:
 - npm install -g karma-chrome-launcher
 - npm install -g karma-safari-launcher
 - npm install -g karma-ng-html2js-preprocessor
-cp test/package.json .
+- cp test/package.json .
 
 #after_success:
 #- npm run coverage
