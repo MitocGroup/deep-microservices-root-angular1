@@ -17,10 +17,11 @@ module.exports = function(config) {
     files: [
       'Frontend/js/lib/angular.js',
       'Frontend/js/lib/angular-ui-router.js',
-      //'Frontend/js/lib/deep-framework.js',
       'Frontend/js/lib/system.js',
+
       //'Frontend/js/lib/system-polyfills.js',
       //'Frontend/js/lib/traceur.min.js',
+      //'Frontend/js/lib/deep-framework.js',
 
       //load the polyfill in your Karma, needed since SystemJS depends on Function.bind(), which is not supported in PhantomJS:
       //'node_modules/karma-babel-preprocessor/node_modules/babel-core/browser-polyfill.js',
