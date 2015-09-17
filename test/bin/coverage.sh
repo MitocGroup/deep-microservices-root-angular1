@@ -10,7 +10,7 @@ subpath_run_cmd ${__SRC_PATH} "$__CMD" "Frontend"
 subpath_run_cmd ${__SRC_PATH} "$__CMD" "Backend"
 
 echo "__SRC_PATH:"
-cd ${__SRC_PATH}
+cd ${__SRC_PATH}/Frontend/
 ls -l
 
 echo "starting combining:"
