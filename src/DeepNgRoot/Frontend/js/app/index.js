@@ -3,7 +3,6 @@
 
 import './module/index';
 import './directives/index';
-
 import moduleName from './name';
 
 export function bootstrap() {
