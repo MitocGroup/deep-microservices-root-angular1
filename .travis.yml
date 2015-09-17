@@ -9,11 +9,9 @@ branches:
   only:
   - master
   - unit-testing
-env:
-  global:
-    secure: optd0NIMYYeS4MMTiVbxeXI8DsiMIx6r09V0mn/aE794f7E/VM8SwpztOfJuu88WEsM429r3GZ4QAPOvlOr7aIias3vRZ/MeteO+xjThdLevF+VnhYyyL7ZVjqoeVoqvlGg4SzU3ZButWYlmFtFqlW14QrX2vli40lbl37WtXHkfHcecPdSHH+3WgvJ1UG+hydMPdqMbFpUTOxOeQPeHvItE7s+tMsLrGAoqrZamaHklJEPB4yDccTaIcDuwQ/2lBoHYP7ptVLPBibVEubomicWY7BAfwYOJHpimYewbaQKOoXAY42VTthlLZX6xkTIaat9VVw23fFRK4xdTyAV1wnFnGr1O5+KYUeLI+s+eQI8Ch51u4GU7gt3KffFj3cWiRffAWVbSG6lfZizFR5WdVTy8QaK6avYgLjxxoIMnKB3nE5eSDDC6dVjSnnG26VQqelB0WKScXsnbHzRUxAY/EQj0u30Y1jTO+Yg16TJ/DGOYSdNGFD5+y7ML8f2GBbPrrugmvb6+9ZU7SP78a/ISuSnpCTDzWho05iaGYRyq8kLWbb/0BOGbmSL3fM0BsK1hAIji/T067CCnx9i8lbCFfQi+NBezi4DHPmeAWOhyxobLtVkOcK0ahOuOxB/N0uSxiQFo9Qxya+ZRPUzLzc5YYwhpYBZHpC0rDiHEXjxe0Dc=
 before_install:
 - npm install -g jspm
+- jspm config registries.github.auth $JSPM_GITHUB_AUTH_TOKEN
 - npm install -g babel
 - npm install -g browserify
 - npm install -g mocha
