@@ -9,18 +9,11 @@ __CMD='npm run coverage'
 subpath_run_cmd ${__SRC_PATH} "$__CMD" "Frontend"
 subpath_run_cmd ${__SRC_PATH} "$__CMD" "Backend"
 
-echo "__SRC_PATH:"
-cd ${__SRC_PATH}/Frontend/coverage/*/
-ls -l
-
 ### Merge Coverage results ###
 istanbul-combine -d ${__COVERAGE_PATH} -r lcovonly -p both \
   ${__SRC_PATH}Frontend/coverage/*/coverage-final.json
 
 ### Upload Coverage info to Codacy ###
-echo "Done combining"
-cd ${__COVERAGE_PATH}
-
 cat ${__COVERAGE_PATH}"/lcov.info" | codacy-coverage
 cat ${__COVERAGE_PATH}"/lcov.info" | coveralls
 
