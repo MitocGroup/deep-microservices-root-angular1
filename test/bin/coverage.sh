@@ -13,12 +13,8 @@ echo "__SRC_PATH:"
 cd ${__SRC_PATH}/Frontend/coverage/*/
 ls -l
 
-echo "starting combining in :"
-cd ${__COVERAGE_PATH}/..
-ls -l
-
 ### Merge Coverage results ###
-istanbul-combine -d ${__COVERAGE_PATH} -r lcov -p none \
+istanbul-combine -d ${__COVERAGE_PATH} -r lcov -p both \
   ${__SRC_PATH}Frontend/coverage/*/coverage-final.json
 
 ### Upload Coverage info to Codacy ###
