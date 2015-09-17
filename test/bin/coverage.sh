@@ -10,7 +10,7 @@ subpath_run_cmd ${__SRC_PATH} "$__CMD" "Frontend"
 subpath_run_cmd ${__SRC_PATH} "$__CMD" "Backend"
 
 echo "__SRC_PATH:"
-cd ${__SRC_PATH}/Frontend/
+cd ${__SRC_PATH}/Frontend/coverage
 ls -l
 
 echo "starting combining:"
@@ -27,7 +27,7 @@ cat ${__COVERAGE_PATH}"/lcov.info" | codacy-coverage
 cat ${__COVERAGE_PATH}"/lcov.info" | coveralls
 
 ### Cleanup! ###
-
-__CMD='rm -rf ./coverage'
-
-subpath_run_cmd ${__SRC_PATH} "$__CMD"
+#
+#__CMD='rm -rf ./coverage'
+#
+#subpath_run_cmd ${__SRC_PATH} "$__CMD"
