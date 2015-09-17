@@ -10,12 +10,15 @@ subpath_run_cmd ${__SRC_PATH} "$__CMD" "Frontend"
 subpath_run_cmd ${__SRC_PATH} "$__CMD" "Backend"
 
 echo "__SRC_PATH:"
-cd ${__SRC_PATH}/Frontend/coverage
+cd ${__SRC_PATH}/Frontend/coverage/*/
 ls -l
 
-echo "starting combining:"
+echo "starting combining in :"
+cd ${__COVERAGE_PATH}/..
+ls -l
+
 ### Merge Coverage results ###
-istanbul-combine -d ${__COVERAGE_PATH} -r lcov -p both \
+istanbul-combine -d ${__COVERAGE_PATH} -r lcovonly -p none \
   ${__SRC_PATH}Frontend/coverage/*/coverage-final.json
 
 ### Upload Coverage info to Codacy ###
