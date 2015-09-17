@@ -3,7 +3,9 @@
 // Karma configuration
 // Generated on Fri Aug 14 2015 12:41:04 GMT+0300 (EEST)
 
-module.exports = function(config) {
+module.exports = function (config) {
+
+
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
@@ -126,5 +128,6 @@ module.exports = function(config) {
     // if true, Karma captures browsers, runs the tests and exits
     singleRun: true,
 
-  });
+  })
+  ;
 };
