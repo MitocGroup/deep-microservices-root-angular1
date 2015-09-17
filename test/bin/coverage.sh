@@ -18,12 +18,13 @@ cd ${__COVERAGE_PATH}/..
 ls -l
 
 ### Merge Coverage results ###
-istanbul-combine -d ${__COVERAGE_PATH} -r lcovonly -p none \
+istanbul-combine -d ${__COVERAGE_PATH} -r lcov -p both \
   ${__SRC_PATH}Frontend/coverage/*/coverage-final.json
 
 ### Upload Coverage info to Codacy ###
 echo "Done combining"
 cd ${__COVERAGE_PATH}
+ls -l
 
 
 cat ${__COVERAGE_PATH}"/lcov.info" | codacy-coverage
