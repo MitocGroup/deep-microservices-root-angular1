@@ -5,8 +5,6 @@ import './module/index';
 import './directives/index';
 
 import moduleName from './name';
-import './module/index';
-import './directives/index';
 
 export function bootstrap() {
 
