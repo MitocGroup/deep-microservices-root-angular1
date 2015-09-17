@@ -9,6 +9,10 @@ branches:
   only:
   - master
   - unit-testing
+env:
+  global:
+    #JSPM_GITHUB_AUTH_TOKEN=[secure]
+    secure: PNTrGTuGcxtLufgIkUjM6maeAYjKXtU+bMfhAvJvJt3mBY63q9Ze/jcQpv8ZlrXC9fIy2RsIaskCMLgR2O2stS4btffI//wr60kgLs8clNrJe8Gj3SnFzM6MgLsyLauERP1wDAoJgH4lwHgpaayTjm95ksm1BNo21zpOjO9c6GMIV+1OIsKvpsZ2HyNeazJvTROeNmA8zsKyILS5AtJtkt+nk3zOYwzjiOqZFxXqtcSZlC99lyYbGL1Tn2rHkZPG/oaU3vMCLrVogw/vjjPidYCwR+iQeNqeO3+J2o0eGqT6XDE684s54BaQqlLDcyhqCBKzgFO+Gu0wlRgYRM+JRzGnrQuP2c757rGw+3LgwWiSettOyJckx6nOWgeeDFnox4GbN3hzytv+YtNIDzAOE/pd498o8ipN5xYbQ6tgCSRDzFMwSTXMBRwec3U3/wMk/vjNwxrYMq/jE0lysZ3BSlCA8wiMTekR2xPRAuYoM4ap8znsILb5gjd9g3IwH5/znQScMDp6VQW/NYOs+2xli4EhSLCxlp80isAvmv2rQF9wc2gP+1glPcSxjFpmeW7PI8DW5P5C+ZB+9Xb2EpCYFFsSK47JXpusZCEokrmr3+FU/9GMYiWE+ZV8xfSyr2pUKQb+/hPG13QaUV5HPoAsufq3LHgZlwR3XGJOBCjmp20=
 before_install:
 - npm install -g jspm
 - jspm config registries.github.auth $JSPM_GITHUB_AUTH_TOKEN
