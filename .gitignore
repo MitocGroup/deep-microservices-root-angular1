@@ -30,3 +30,4 @@ node_modules
 .idea/
 .parameters.json
 .DS_Store
+deeploy.json
