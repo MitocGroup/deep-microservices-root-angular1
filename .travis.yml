@@ -2,20 +2,16 @@ language: node_js
 sudo: false
 node_js:
 - '0.12'
-
 cache:
   directories:
-  - "$(npm root -g)"
-
+  - $(npm root -g)
 branches:
   only:
   - master
   - unit-testing
-
 env:
   global:
-   - secure: "q9IMb7av4hiTAugn/ZLrBJCeDBYbOLV/ow0YoymFErqW+JH8m31LzaCXEr2RJT6cL9HghL6SoCyre5qRwVxFQqxuqEvH47qYyXCkS1wMUulGtha6GyPuonqMx9dr2wyFNGbSPPLE8cK/GqFjm9YiuyVg6BxP9+657sM/QCYoi+MeS66JgQ2wCGS/0erKoWC8V2yjQFuCTNS91C7TL+AFPgG9a2AthTyhyA0v0bZBMAxyfnP6vSBUMdB/6wZN89G2wUQEY1ScAcrIIYhZu/GAsRFeK8YVtZ6nuooHlvDazGogM66JihE4j0HBZ9g07S/PBAQpQooGtc9wlYv5VzXmUqLwJYr9TY57IrV4z3QrEQ+aeXEd0uIixca8v3rehakrPtX65+TxwAdsewE2E8OB4hcGuOStByczDQZ5q9Ov8H4ld+MrbgE7J13QFIBCX4ZH/PMZVxVGvmepETITR9U7BrtsCVooYKkgf+KwBHJbeB6huXRTlhtWLNJW4ghqLemFV/vgqdNyWsOC+NaJMSMfkxXZ5WEGK+uz1Ubz1w/IKQa/qYZu8/ghqIANylfPP9NaH9W8YDNnqBAHUqDcQI0/xYGcSwguMgOeevCCU6hTEhaIROLr1sP8cKjVGYnoA5hapTSektuq3EoC36ujsgNE4Z3pqyJdVmMUkuEWx89ETEQ="
-
+    secure: NZOJKd3X4Ww+ULbf86iweo9e7Bna8d3FPWUn1jR3hVc7ChGuF57T5Dc3YJ7vfuutEGSo5cClGsoybxd7tfh5spvHrHzJ+9L8DAs0PpzaWd4aWl6X3Cj6FQgjTDotojsP5GMT6uPyBnwswqDOOwCqx3r8pahMZ/SfPhehSX5r4MZmhGs3mNSC21VV+AMJVLH9tQjuiQa/MJgVAkxY7UC0218QBguTuTS2foItixTB1xVVQFJ6vGDl/zV0egpq8p0zuxBd7aLMXQVw016PIHvh/JrLbncyvpZOclIbT89FMhaDq7Zo1qjhnTc+WE57TJRIEiBHP/cJo9F9Wjs/6cXP5FdBcrUO3mU93PKt60l55QTsRtaE/kGcUPLi5CBG+xj4Uvi+E9xY0Sc5Wjz+/PWnTwDxdlMCXlVSwEKRp26cl0+jnFIBx97bhIorHWLDxU/aE3rVmvvmm5Iz+q41dBpaJ6dB92BF2WPJKvDlC2PXuUmVYHmEC4yhxTiGmqzP/TyPBiiJbzL0lTJSxJzKntLUQj/6yiu5HOpVPDrG7fLBb4K3S/+KUBfXN94GYSOJ/Dxj34+tLKC/WkPRSr6yMOhrTl3s8vQDk1IEmuCvwEPnMBVfne+dn8qVS0kT8JFCgfa0/4qTrUcLJNVusln4uJEJIQrp57XOWUkCbcxgmtMXYQA=
 before_install:
 - npm install -g jspm
 - jspm config registries.github.auth $JSPM_GITHUB_AUTH_TOKEN
@@ -41,6 +37,5 @@ before_install:
 - npm install -g karma-safari-launcher
 - npm install -g karma-ng-html2js-preprocessor
 - cp test/package.json .
-
 after_success:
 - npm run coverage
