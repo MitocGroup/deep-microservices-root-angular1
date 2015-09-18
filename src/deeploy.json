@@ -3,8 +3,8 @@
   "env": "dev",
   "awsAccountId": 576799041873,
   "aws": {
-    "accessKeyId": "AKIAJV2AHRG53DLAVWXA",
-    "secretAccessKey": "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",
+    "accessKeyId": "[TO-BE-UPDATED]",
+    "secretAccessKey": "[TO-BE-UPDATED]",
     "region": "us-west-2",
     "httpOptions": {
       "timeout": 60000
