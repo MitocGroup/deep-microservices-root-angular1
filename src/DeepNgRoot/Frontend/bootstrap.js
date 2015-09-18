@@ -19,7 +19,7 @@ deepKernel.loadFromFile('_config.json', function() {
   bootstrapScripts.map(function(m) {
     scripts.push(Promise.resolve(System.import(m)).then(function(module) {
       // collect angular modules
-      let moduleName = module.default.name;
+      var moduleName = module.default.name;
       mNames.push(moduleName);
       modules.push(module.default);
 
@@ -36,8 +36,9 @@ deepKernel.loadFromFile('_config.json', function() {
   Promise.all(scripts).then(afterBootstrapLoad);
 
   function afterBootstrapLoad() {
-    let configPromise = [];
-    for (let callback of config) {
+    var configPromise = [];
+    
+    for (var callback of config) {
       if (typeof callback === 'function') {
         configPromise.push(Promise.resolve(callback()));
       }
@@ -47,8 +48,9 @@ deepKernel.loadFromFile('_config.json', function() {
   }
 
   function afterConfigLoad() {
-    let loadFirstPromise = [];
-    for (let callback of loadFirst) {
+    var loadFirstPromise = [];
+    
+    for (var callback of loadFirst) {
       if (typeof callback === 'function') {
         loadFirstPromise.push(Promise.resolve(callback()));
       }
@@ -66,8 +68,9 @@ deepKernel.loadFromFile('_config.json', function() {
 
   function afterAngularLoad() {
     System.set('angular-ui-router', System.newModule(angular.module('ui.router')));
-    let moduleScripts = [];
-    for (let callback of modules) {
+    var moduleScripts = [];
+    
+    for (var callback of modules) {
       if (typeof callback === 'function') {
         moduleScripts.push(Promise.resolve(callback()));
       }
