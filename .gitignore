@@ -29,3 +29,5 @@ node_modules
 **/Frontend/vendor/
 .idea/
 .parameters.json
+.DS_Store
+deeploy.json

@@ -5,7 +5,7 @@
   "scripts": {
     "postinstall": "jspm install",
     "test": "karma start config.karma.js",
-    "coverage": "echo \"Error: no coverage specified\" && exit 0"
+    "coverage": "echo \"No coverage specified\" && exit 0"
   },
   "jspm": {
     "directories": {
