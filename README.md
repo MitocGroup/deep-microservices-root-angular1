@@ -1,5 +1,5 @@
-DEEP Microservices HelloWorld
-=============================
+DEEP Microservices Root AngularJS
+=================================
 
 [![Build Status](https://travis-ci.org/MitocGroup/deep-microservices-root-angularjs.svg?branch=master)](https://travis-ci.org/MitocGroup/deep-microservices-helloworld)
 [![NPM Version](https://img.shields.io/npm/v/deep-microservices-root-angularjs.svg)](https://npmjs.org/package/deep-microservices-root-angularjs)
