@@ -1,7 +1,7 @@
 ### How to add AgularJS module
 
 
-[![Build Status](https://travis-ci.org/MitocGroup/deep-microservices-root-angularjs.svg?branch=master)](https://travis-ci.org/MitocGroup/deep-microservices-helloworld)
+[![Build Status](https://travis-ci.org/MitocGroup/deep-microservices-root-angularjs.svg?branch=master)](https://travis-ci.org/MitocGroup/deep-microservices-root-angularjs)
 [![NPM Version](https://img.shields.io/npm/v/deep-microservices-root-angularjs.svg)](https://npmjs.org/package/deep-microservices-root-angularjs)
 [![Dependencies Status](https://david-dm.org/MitocGroup/deep-microservices-root-angularjs.svg)](https://david-dm.org/MitocGroup/deep-microservices-root-angularjs)
 [![Codacy Badge](https://api.codacy.com/project/badge/bb52ea3b9fd641b6a111f90cb387b575)](https://www.codacy.com)
