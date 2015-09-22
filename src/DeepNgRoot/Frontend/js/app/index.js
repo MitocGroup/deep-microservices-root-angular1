@@ -8,7 +8,7 @@ import moduleName from './name';
 export function bootstrap() {
 
   //Bootstrap the ng application
-  angular.element(document).ready(function() {
+  angular.element(document).ready(function () {
 
     try {
 
@@ -18,4 +18,17 @@ export function bootstrap() {
       DeepFramework.Kernel.container.get('log').log(e);
     }
   });
+
+  let coverallsVar = function() {
+    var x = null;
+    var y = false;
+    var result = null;
+
+    if (x === null && y === null) {
+      result = true;
+    } else {
+      result = false;
+    }
+    return result;
+  };
 }
