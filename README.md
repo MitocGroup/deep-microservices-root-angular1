@@ -1,11 +1,22 @@
-### How to add AgularJS module
+DEEP Microservices Root AngularJS
+=================================
 
-
-[![Build Status](https://travis-ci.org/MitocGroup/deep-microservices-root-angularjs.svg?branch=master)](https://travis-ci.org/MitocGroup/deep-microservices-root-angularjs)
 [![NPM Version](https://img.shields.io/npm/v/deep-microservices-root-angularjs.svg)](https://npmjs.org/package/deep-microservices-root-angularjs)
-[![Dependencies Status](https://david-dm.org/MitocGroup/deep-microservices-root-angularjs.svg)](https://david-dm.org/MitocGroup/deep-microservices-root-angularjs)
-[![Codacy Badge](https://api.codacy.com/project/badge/bb52ea3b9fd641b6a111f90cb387b575)](https://www.codacy.com)
-[![Coverage Status](https://coveralls.io/repos/MitocGroup/deep-microservices-root-angularjs/badge.svg?branch=unit-testing&service=github&t=eBt0EE)](https://coveralls.io/github/MitocGroup/deep-microservices-root-angularjs?branch=unit-testing)
+[![Build Status](https://travis-ci.org/MitocGroup/deep-microservices-root-angularjs.svg)](https://travis-ci.org/MitocGroup/deep-microservices-root-angularjs)
+[![Codacy Badge](https://api.codacy.com/project/badge/49327d5280c44f50999dc13e13dda285)](https://www.codacy.com/app/MitocGroup/deep-microservices-root-angularjs)
+[![Coverage Status](https://coveralls.io/repos/MitocGroup/deep-microservices-root-angularjs/badge.svg?service=github&t=eBt0EE)](https://coveralls.io/github/MitocGroup/deep-microservices-root-angularjs)
+
+![Digital Enterprise End-to-end Platform Microservices](src/DeepNgRoot/Frontend/img/logo.png)
+
+## Digital Enterprise End-to-end Platform
+
+[DEEP](https://github.com/MitocGroup/deep), also known as Digital Enterprise End-to-end Platform, enables businesses and developers to achieve more by doing less. DEEP is low cost and low maintenance digital platform powered by abstracted services from AWS. [DEEP Framework](https://github.com/MitocGroup/deep) abstracts the cloud services functionality and makes it easy to use and developer friendly.
+
+DEEP is using [microservices architecture](https://en.wikipedia.org/wiki/Microservices) on serverless environments from cloud providers like AWS. [DEEP Microservice](docs/microservice.md) is the predefined structure of a microservice (an application) in DEEP. There is clear separation between frontend, backend and database, as well as unit tests and documentation.
+
+> [DEEP Marketplace](https://www.deep.mg) (aka [www.deep.mg](https://www.deep.mg)) is a web application built using DEEP and published on serverless environment from [Amazon Web Services](https://aws.amazon.com) (aka [aws.amazon.com](https://aws.amazon.com)). We make it faster and easier for developers to build and publish their software, as well as for businesses to discover and test applications they are looking for. Our goal is to connnect businesses with developers, and empower technical teams to build self-service software that none technical teams could use. The marketplace is like Apple's App Store or Google's Play for web applications that run natively on cloud providers like AWS.
+
+### How to add AgularJS module
 
 **DeepNgRoot** is a root micro-service which provides [AngularJS](https://angularjs.org/) and [AngularUI Router](https://github.com/angular-ui/ui-router) module.
 
