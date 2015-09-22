@@ -13,6 +13,7 @@ branches:
   - dev
   - test
   - stage
+  - unit-testing
 
 env:
   global:
