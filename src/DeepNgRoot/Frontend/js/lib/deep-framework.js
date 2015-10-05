@@ -7056,12 +7056,7 @@ require = function e(t, n, r) {
 							Payload: JSON.stringify(this.payload)
 						};
 
-						console.log('LAMBDA INVOKE', invocationParameters);
-
 						this._lambda.invoke(invocationParameters, function(error, data) {
-							console.log('LAMBDA ERROR', error);
-							console.log('LAMBDA DATA', data);
-
 							callback(new _LambdaResponse.LambdaResponse(this, data, error))
 						}.bind(this));
 						return this
