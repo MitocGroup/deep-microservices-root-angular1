@@ -2,7 +2,7 @@
  * Created by AlexanderC on 10/6/15.
  */
 
-var exports = module.exports = function() {
+var exports = module.exports = function(callback) {
   var DEEP = 'deep-framework';
   var BROWSER_BUILD = 'browser/framework.js';
   var FW_DEP_PATH = 'DeepNgRoot/Frontend/js/lib/deep-framework.js';
@@ -18,13 +18,15 @@ var exports = module.exports = function() {
     function(error, stdout, stderr) {
       if (error) {
         console.error('Error while installing ' + DEEP, error);
-        process.exit(1);
+        callback();
+        return;
       }
 
       exec('npm root -g', function(error, stdout, stderr) {
         if (error) {
           console.error('Error getting NPM root', error);
-          process.exit(1);
+          callback();
+          return;
         }
 
         var npmRoot = stdout.replace(/\s+/, '');
@@ -33,7 +35,8 @@ var exports = module.exports = function() {
 
         if (!fs.existsSync(browserFw)) {
           console.error('Missing browser version of ' + DEEP + ' in ' + browserFw);
-          process.exit(1);
+          callback();
+          return;
         }
 
         var fwDep = path.join(__dirname, FW_DEP_PATH);
@@ -41,10 +44,13 @@ var exports = module.exports = function() {
         exec('rm -f ' + fwDep + '; cp ' + browserFw + ' ' + fwDep, function(error, stdout, stderr) {
           if (error) {
             console.error('Error while copying browser version of ' + DEEP, error);
-            process.exit(1);
+            callback();
+            return;
           }
 
           console.log('Browser version of ' + DEEP + ' was successfully copied into ' + fwDep);
+
+          callback();
         });
       });
     }
