@@ -9,11 +9,8 @@ export function bootstrap() {
 
   //Bootstrap the ng application
   angular.element(document).ready(function() {
-
     try {
-
       angular.bootstrap(document, [moduleName], {strictDi: true});
-
     } catch (e) {
       DeepFramework.Kernel.container.get('log').log(e);
     }
