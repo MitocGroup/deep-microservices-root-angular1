@@ -20,7 +20,7 @@ module.exports = function(config) {
       'Tests/Frontend/vendor/github/angular-ui/ui-router@0.2.15/angular-ui-router.js',
       'Tests/Frontend/vendor/system.js',
 
-      'Tests/Frontend/lib/DeepFramework.js',
+      'Frontend/js/lib/deep-framework.js',
       'Tests/Frontend/mock/lib/DeepFramework.js',
 
       //include the directory where directive templates are stored.

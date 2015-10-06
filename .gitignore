@@ -31,3 +31,5 @@ node_modules
 .parameters.json
 .DS_Store
 deeploy.json
+
+deep-framework.js
