@@ -5,7 +5,7 @@
 var exports = module.exports = function(callback) {
   var DEEP = 'deep-framework';
   var BROWSER_BUILD = 'browser/framework.js';
-  var FW_DEP_PATH = 'DeepNgRoot/Frontend/js/lib/deep-framework.js';
+  var FW_DEP_PATH = 'Frontend/js/lib/deep-framework.js';
 
   var exec = require("child_process").exec;
   var path = require('path');
