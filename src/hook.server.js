@@ -11,7 +11,7 @@ var exports = module.exports = function(callback) {
   var path = require('path');
   var fs = require('fs');
 
-  console.log('- Checking for ' + DEEP + ' globally');
+  console.log('Checking for ' + DEEP + ' globally');
 
   var installation = exec(
     'npm info -g ' + DEEP + ' --loglevel silent > /dev/null || npm install -g ' + DEEP + ' --production --loglevel warn',
