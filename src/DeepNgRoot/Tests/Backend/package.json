@@ -8,6 +8,5 @@
     "coverage": "echo \"No coverage specified\" && exit 0"
   },
   "dependencies": {},
-  "devDependencies": {},
-  "private": true
+  "devDependencies": {}
 }

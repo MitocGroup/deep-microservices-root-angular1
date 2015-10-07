@@ -20,4 +20,8 @@ describe('Health checks', function() {
     expect(typeof inject).toBe('function');
     expect(typeof dump).toBe('function');
   });
+
+  it('Module name is [ng-root]"', function() {
+    expect(moduleName).toBe('ng-root');
+  });
 });
