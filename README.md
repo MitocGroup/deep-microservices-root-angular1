@@ -3,7 +3,7 @@
 
 [![Build Status](https://travis-ci.org/MitocGroup/deep-microservices-root-angularjs.svg?branch=master)](https://travis-ci.org/MitocGroup/deep-microservices-root-angularjs)
 [![Coverage Status](https://coveralls.io/repos/MitocGroup/deep-microservices-root-angularjs/badge.svg?service=github&t=eBt0EE)](https://coveralls.io/github/MitocGroup/deep-microservices-root-angularjs)
-[![Codacy Badge](https://api.codacy.com/project/badge/49327d5280c44f50999dc13e13dda285)](https://www.codacy.com/app/MitocGroup/deep-microservices-root-angularjs)
+[![Codacy Badge](https://api.codacy.com/project/badge/ef7c8d169940408dbeb10c634c8b4259)](https://www.codacy.com/app/MitocGroup/deep-microservices-root-angularjs)
 
 [Digital Enterprise End-to-end Platform](https://github.com/MitocGroup/deep-framework) (also known as DEEP) is low cost and low maintenance Platform-as-a-Service powered by abstracted services (also known as serverless environments) from AWS.
 
