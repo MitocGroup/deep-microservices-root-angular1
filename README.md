@@ -1,7 +1,7 @@
 ![Digital Enterprise End-to-end Platform Microservices](https://github.com/MitocGroup/deep-microservices-helloworld/blob/master/src/DeepHelloWorld/Frontend/img/logo.png) DEEP Microservices Root AngularJS
 =================================
 
-[![Build Status](https://travis-ci.org/MitocGroup/deep-microservices-root-angularjs.svg)](https://travis-ci.org/MitocGroup/deep-microservices-root-angularjs)
+[![Build Status](https://travis-ci.org/MitocGroup/deep-microservices-root-angularjs.svg?branch=master)](https://travis-ci.org/MitocGroup/deep-microservices-root-angularjs)
 [![Coverage Status](https://coveralls.io/repos/MitocGroup/deep-microservices-root-angularjs/badge.svg?service=github&t=eBt0EE)](https://coveralls.io/github/MitocGroup/deep-microservices-root-angularjs)
 [![Codacy Badge](https://api.codacy.com/project/badge/49327d5280c44f50999dc13e13dda285)](https://www.codacy.com/app/MitocGroup/deep-microservices-root-angularjs)
 
