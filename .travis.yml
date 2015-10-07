@@ -53,4 +53,3 @@ before_install:
 
 after_success:
 - npm run coverage
-
