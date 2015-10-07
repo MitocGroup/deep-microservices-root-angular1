@@ -13,7 +13,6 @@ branches:
   - dev
   - test
   - stage
-  - travis_ci
 
 env:
   global:

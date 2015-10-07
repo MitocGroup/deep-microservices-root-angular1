@@ -4,8 +4,6 @@ import moduleName from '../../../../Frontend/js/app/name';
 
 describe('Directives', function() {
 
-  var element;
-  var compiledElement;
   var $compile;
   var $rootScope;
   var title;
