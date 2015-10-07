@@ -20,7 +20,7 @@ module.exports = function(config) {
       'Tests/Frontend/vendor/github/angular-ui/ui-router@0.2.15/angular-ui-router.js',
       'Tests/Frontend/vendor/system.js',
 
-      'Frontend/js/lib/deep-framework.js',
+      'Tests/Frontend/lib/DeepFramework.js',
       'Tests/Frontend/mock/lib/DeepFramework.js',
 
       //include the directory where directive templates are stored.
@@ -41,7 +41,7 @@ module.exports = function(config) {
         'Frontend/js/app/index.js',
       ],
       serveFiles: [
-        'Frontend/**/*.js',
+        'Frontend/js/app/**/*.js',
       ],
     },
 
@@ -57,7 +57,7 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'Frontend/js/app/**/*.js': ['babel', 'coverage'],
+      'Frontend/js/app/**/*.js': ['coverage'],
       'Tests/Frontend/angular/**/*.spec.js': ['babel'],
       '**/views/directives/*.html': 'ng-html2js',
     },
@@ -79,8 +79,6 @@ module.exports = function(config) {
       'karma-coverage',
       'karma-jspm',
       'karma-phantomjs-launcher',
-      'karma-chrome-launcher',
-      'karma-safari-launcher',
       'karma-verbose-reporter',
       'karma-ng-html2js-preprocessor',
     ],
@@ -93,6 +91,12 @@ module.exports = function(config) {
     reporters: ['verbose', 'coverage'],
 
     coverageReporter: {
+      // configure the reporter to use isparta for JavaScript coverage
+      // Only on { "karma-coverage": "douglasduteil/karma-coverage#next" }
+      instrumenters: { isparta: require('isparta') },
+      instrumenter: {
+        '**/*.js': 'isparta',
+      },
       reporters: [
         {
           type: 'json',
