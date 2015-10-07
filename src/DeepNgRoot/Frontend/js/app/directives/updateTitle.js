@@ -10,7 +10,9 @@ angular.module(moduleName)
         var listener = function(event, toState) {
 
           var title = 'It works!';
-          if (toState.data && toState.data.pageTitle) title = toState.data.pageTitle;
+          if (toState.data && toState.data.pageTitle) {
+            title = toState.data.pageTitle;
+          }
 
           $timeout(function() {
             element.text(title);
