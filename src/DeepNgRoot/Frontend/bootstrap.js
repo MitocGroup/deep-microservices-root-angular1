@@ -60,7 +60,8 @@ deepKernel.loadFromFile('_config.json', function() {
   }
 
   function afterLoadFirst() {
-    System.import('/js/lib/css.js').then(function() {
+    System.import('/js/lib/css.js').then(function(script) {
+      System.set('css', System.newModule(script));
       System.import('/js/lib/angular.js').then(function(angular) {
         System.set('angular', System.newModule(angular));
         System.import('/js/lib/angular-ui-router.js').then(afterAngularLoad);
