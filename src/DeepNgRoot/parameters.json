@@ -6,9 +6,9 @@
       "displayName": "User Provider Endpoint",
       "type": "string",
       "required": true,
-      "pattern": "^@[^:]+:.+$",
-      "example": "@deep.auth:user-retrieve",
-      "default": "@deep.auth:user-retrieve"
+      "pattern": "^@[^:]+:[^:]+:[^:]+$",
+      "example": "@deep.auth:user:retrieve",
+      "default": "@deep.auth:user:retrieve"
     },
     "logDrivers|sentry|dsn": {
       "displayName": "Sentry DSN",
