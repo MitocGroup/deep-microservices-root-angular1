@@ -1,0 +1,4 @@
+lib/*
+vendor/*
+_config.json
+package.json
