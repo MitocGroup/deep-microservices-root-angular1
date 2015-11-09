@@ -1,13 +1,12 @@
-![Digital Enterprise End-to-end Platform Microservices](https://github.com/MitocGroup/deep-microservices-helloworld/blob/master/src/DeepHelloWorld/Frontend/img/logo.png) DEEP Microservices Root AngularJS 
-=================================
+![Digital Enterprise End-to-end Platform Microservices](https://github.com/MitocGroup/deep-microservices-helloworld/blob/master/src/DeepHelloWorld/Frontend/img/logo.png) DEEP Root AngularJS 
+=====================
 
 [![Build Status](https://travis-ci.org/MitocGroup/deep-microservices-root-angularjs.svg?branch=master)](https://travis-ci.org/MitocGroup/deep-microservices-root-angularjs)
-[![Codacy Badge](https://api.codacy.com/project/badge/ef7c8d169940408dbeb10c634c8b4259)](https://www.codacy.com/app/MitocGroup/deep-microservices-root-angularjs)
-[![Coverage Status](https://coveralls.io/repos/MitocGroup/deep-microservices-root-angularjs/badge.svg?service=github&t=eBt0EE)](https://coveralls.io/github/MitocGroup/deep-microservices-root-angularjs)
+[![Codacy Badge](https://api.codacy.com/project/badge/coverage/ef7c8d169940408dbeb10c634c8b4259)](https://www.codacy.com/app/MitocGroup/deep-microservices-root-angularjs)
 
 [Digital Enterprise End-to-end Platform](https://github.com/MitocGroup/deep-framework) (also known as DEEP) is low cost and low maintenance Platform-as-a-Service powered by abstracted services (also known as serverless environments) from AWS.
 
-## Getting Started
+## Getting Started [![Join char on gitter.im](https://img.shields.io/badge/%E2%8A%AA%20gitter%20-join%20chat%20%E2%86%92-brightgreen.svg)](https://gitter.im/MitocGroup/deep-framework)
 
 ### How to add AgularJS module
 
@@ -72,22 +71,16 @@ $stateProvider
 ```
 
 
-## Digital Enterprise End-to-end Platform
+## How can I get involved? [![Join char on gitter.im](https://img.shields.io/badge/%E2%8A%AA%20gitter%20-join%20chat%20%E2%86%92-brightgreen.svg)](https://gitter.im/MitocGroup/deep-framework)
 
-[Digital Enterprise End-to-end Platform](https://github.com/MitocGroup/deep-framework) (also known as DEEP) is low cost and low maintenance Platform-as-a-Service powered by abstracted services (also known as serverless environments) from AWS. We enable businesses and developers to achieve more by doing less. [DEEP Framework](https://github.com/MitocGroup/deep-framework) abstracts the cloud services functionality and makes it easy to use and developer friendly.
-
-DEEP is using [microservices architecture](https://en.wikipedia.org/wiki/Microservices) on serverless environments from cloud providers like AWS. [DEEP Microservice](https://github.com/MitocGroup/deep-framework/blob/master/docs/microservice.md) is the predefined structure of a microservice (an application) in DEEP. There is clear separation between frontend, backend and database, as well as unit tests and documentation.
-
-> [DEEP Marketplace](https://www.deep.mg) (aka [www.deep.mg](https://www.deep.mg)) is a web application built using DEEP and published on serverless environment from [Amazon Web Services](https://aws.amazon.com) (aka [aws.amazon.com](https://aws.amazon.com)). We make it faster and easier for developers to build and publish their software, as well as for businesses to discover and test applications they are looking for. Our goal is to connect businesses with developers, and empower technical teams to build self-service software that none technical teams could use. The marketplace is like Apple's App Store for web applications that run natively on cloud providers like AWS.
-
-## Feedback
+### Feedback
 
 We are eager to get your feedback, so please use whatever communication channel you prefer:
-- [github issues](https://github.com/MitocGroup/deep-framework/issues)
+- [github issues](https://github.com/MitocGroup/deep-microservices-root-angularjs/issues)
 - [gitter chat room](https://gitter.im/MitocGroup/deep-framework)
 - [deep email address](mailto:feedback@deep.mg)
 
-## Contribution
+### Contribution
 
 This project is open source, and we encourage developers to contribute. Here below is the easiest way to do so:
 
@@ -96,6 +89,20 @@ This project is open source, and we encourage developers to contribute. Here bel
 3. Perform a [pull request](http://help.github.com/pull-requests/) from your repository back into original repository in GitHub.
 
 Make sure you update `package.json` (or `deepkg.json`, depends on the use case) and put your name and contact information in contributors section. We would like to recognize the work and empower every contributor in creative ways :)
+
+### Roadmap
+
+Our short-to-medium-term roadmap items, in order of descending priority:
+
+Feature | Details | Owner
+--------|---------|------
+Increase code coverage | To be updated | [@vcernomschi](https://github.com/vcernomschi)
+Implement end-to-end testing | To be updated | [@vcernomschi](https://github.com/vcernomschi)
+
+### Changelog
+
+Changelog files are located in `/changelog` folder.
+> See [CHANGELOG.md](https://github.com/MitocGroup/deep-microservices-root-angularjs/blob/master/CHANGELOG.md) for latest changelog.
 
 ### License
 
