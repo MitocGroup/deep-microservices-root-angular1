@@ -2,14 +2,14 @@
 
 import moduleName from '../../../../Frontend/js/app/name';
 
-describe('Directives', function () {
+describe('Directives', function() {
 
   var compile, scope, directiveElem;
 
-  beforeEach(function () {
+  beforeEach(function() {
     angular.module(moduleName);
 
-    inject(function ($compile, $rootScope) {
+    inject(function($compile, $rootScope) {
       compile = $compile;
       scope = $rootScope.$new();
     });
@@ -24,21 +24,9 @@ describe('Directives', function () {
     return compiledElement;
   }
 
-  it('should have title element', function () {
+  it('should have title element', function() {
     var titleElement = directiveElem.find('title');
     expect(titleElement).toBeDefined();
     expect(titleElement.html()).not.toContain('It works!');
-    expect(titleElement).toEqual({});
-    //expect(spanElement.text()).toEqual('This span is appended from directive.');
   });
-
-  //it('should increment value on click of button', function () {
-  //  scope.value=10;
-  //  var button = directiveElem.find('button');
-  //
-  //  button.triggerHandler('click');
-  //  scope.$digest();
-  //
-  //  expect(scope.value).toEqual(11);
-  //});
 });
