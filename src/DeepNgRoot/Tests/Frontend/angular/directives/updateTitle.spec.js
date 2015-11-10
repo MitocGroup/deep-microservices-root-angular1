@@ -4,26 +4,29 @@ import moduleName from '../../../../Frontend/js/app/name';
 
 describe('Directives', function() {
 
-  var $compile;
-  var $rootScope;
-  var title;
+  var compile, scope, directiveElem;
 
-  // Store references to $rootScope and $compile
-  // so they are available to all tests in this describe block
-  beforeEach(inject(function(_$compile_, _$rootScope_) {
-    // The injector unwraps the underscores (_) from around the parameter names when matching
-    $compile = _$compile_;
-    $rootScope = _$rootScope_;
-  }));
+  beforeEach(function() {
+    angular.module(moduleName);
 
-  it('Check that title doesn\'t equal \'It works!\'', function() {
-    // Compile a piece of HTML containing the directive
-    var element = $compile('<title update-title></title>')($rootScope);
+    inject(function($compile, $rootScope) {
+      compile = $compile;
+      scope = $rootScope.$new();
+    });
 
-    // fire all the watches, to see that title doesn't equal to 'It works!'
-    $rootScope.$digest();
+    directiveElem = getCompiledElement();
+  });
 
-    // Check that the compiled element contains the templated content
-    expect(element.html()).not.toContain('It works!');
+  function getCompiledElement() {
+    var element = angular.element('<title update-title></title>');
+    var compiledElement = compile(element)(scope);
+    scope.$digest();
+    return compiledElement;
+  }
+
+  it('should have title element', function() {
+    var titleElement = directiveElem.find('title');
+    expect(titleElement).toBeDefined();
+    expect(titleElement.html()).not.toContain('It works!');
   });
 });

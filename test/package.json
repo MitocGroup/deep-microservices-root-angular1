@@ -11,6 +11,7 @@
     "build:modules:sfx": "jspm bundle-sfx app/angular/index lib/modules_bundle.sfx.min.js --minify"
   },
   "dependencies": {},
-  "devDependencies": {},
-  "private": true
+  "devDependencies": {
+    "isparta": "3.1.0"
+  }
 }
