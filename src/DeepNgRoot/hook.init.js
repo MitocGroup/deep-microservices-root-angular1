@@ -52,6 +52,8 @@ var exports = module.exports = function(callback) {
             console.log('Browser version of ' + DEEP + ' was successfully copied into ' + fwDep);
             callback();
           });
+        } else {
+          callback();
         }
       });
     }
