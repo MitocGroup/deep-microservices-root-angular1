@@ -14,15 +14,15 @@ var exports = module.exports = function(callback) {
   console.log('Checking for ' + DEEP + ' globally');
 
   var installation = exec(
-    'npm list -g --depth 1 ' + DEEP + ' > /dev/null 2>&1 || npm install -g ' + DEEP + ' --production --loglevel warn',
-    function(error, stdout, stderr) {
+    'npm list -g --depth 1 ' + DEEP + ' > /dev/null 2>&1 || npm install -g ' + DEEP + ' --production --loglevel warn &>/dev/null',
+    function(error) {
       if (error) {
         console.error('Error while installing ' + DEEP, error);
         callback();
         return;
       }
 
-      exec('npm root -g', function(error, stdout, stderr) {
+      exec('npm root -g', function(error, stdout) {
         if (error) {
           console.error('Error getting NPM root', error);
           callback();
@@ -41,17 +41,18 @@ var exports = module.exports = function(callback) {
 
         var fwDep = path.join(__dirname, FW_DEP_PATH);
 
-        exec('rm -f ' + fwDep + '; cp ' + browserFw + ' ' + fwDep, function(error, stdout, stderr) {
-          if (error) {
-            console.error('Error while copying browser version of ' + DEEP, error);
+        if (!fs.existsSync(fwDep)) {
+          exec('cp ' + browserFw + ' ' + fwDep, function(error) {
+            if (error) {
+              console.error('Error while copying browser version of ' + DEEP, error);
+              callback();
+              return;
+            }
+  
+            console.log('Browser version of ' + DEEP + ' was successfully copied into ' + fwDep);
             callback();
-            return;
-          }
-
-          console.log('Browser version of ' + DEEP + ' was successfully copied into ' + fwDep);
-
-          callback();
-        });
+          });
+        }
       });
     }
   );
