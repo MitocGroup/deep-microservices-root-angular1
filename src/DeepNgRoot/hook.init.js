@@ -1,6 +1,8 @@
 /**
  * Created by AlexanderC on 10/6/15.
  */
+ 
+'use strict';
 
 var exports = module.exports = function(callback) {
   var DEEP = 'deep-framework';
