@@ -23,6 +23,20 @@
       "required": true,
       "example": "amzn1.application.3b5k2jb53252352kjh5b23kj5hb",
       "default": "amzn1.application.3b5k2jb53252352kjh5b23kj5hb"
+    },
+    "api|cache|enabled": {
+      "displayName": "Enable API caching?",
+      "type": "boolean",
+      "required": true,
+      "example": false,
+      "default": false
+    },
+    "api|cache|clusterSize": {
+      "displayName": "API cache cluster size ('0.5', '1.6', '6.1', '13.5', '28.4', '58.2', '118', '237') GB",
+      "type": "string",
+      "required": true,
+      "example": "0.5",
+      "default": "0.5"
     }
   }
 }
