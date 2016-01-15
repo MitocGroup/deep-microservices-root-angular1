@@ -18,6 +18,10 @@ deepKernel.loadFromFile('_config.json', function() {
 
   bootstrapScripts.map(function(m) {
     scripts.push(Promise.resolve(System.import(m)).then(function(module) {
+      if (!module || !module.hasOwnProperty('default')) {
+        return;
+      }
+      
       // collect angular modules
       var moduleName = module.default.name;
       mNames.push(moduleName);
