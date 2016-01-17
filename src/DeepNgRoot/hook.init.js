@@ -21,7 +21,8 @@ var exports = module.exports = function(callback) {
   var installation = exec(
     //'npm list -g --depth 1 ' + DEEP + ' > /dev/null 2>&1
     // || npm install -g ' + DEEP + ' --production --loglevel warn &>/dev/null',
-    'npm list -g --depth 1 ' + DEEP_TEMP + ' || npm install -g ' + DEEP_TEMP + ' --production --loglevel warn',
+    'npm list -g --depth 1 ' + DEEP_TEMP +
+    ' || npm install -g ' + DEEP_TEMP + ' --production --loglevel warn',
     function(error) {
       if (error) {
         console.error('Error while installing ' + DEEP, error);
