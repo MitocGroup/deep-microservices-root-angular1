@@ -10,19 +10,14 @@ module.exports = function(callback) {
   var fs = require('fs');
   var os = require('os');
 
-  var DEEP_TEMP = path.join(
-    __dirname, './../../../deep-framework/src/deep-framework'
-  );
-
   var DEEP = 'deep-framework';
   var BROWSER_BUILD = 'browser/framework.js';
   var FW_DEP_PATH = 'Frontend/js/lib/deep-framework.js';
 
   console.log('Checking for ' + DEEP + ' globally');
 
-  var cmd = 'npm list -g --depth 1 ' + DEEP_TEMP + ' > /dev/null 2>&1' +
-    '|| npm install -g ' + DEEP_TEMP +
-    ' --production --loglevel warn &>/dev/null';
+  var cmd = 'npm list -g --depth 1 ' + DEEP + ' > /dev/null 2>&1' +
+    '|| npm install -g ' + DEEP + ' --production --loglevel warn &>/dev/null';
 
   //remove redirection stdout and stderr for Windows
   if (os.platform().indexOf('win32') > -1 ||
