@@ -28,7 +28,7 @@ module.exports = function(callback) {
   if (os.platform().indexOf('win32') > -1 ||
     os.platform().indexOf('win64') > -1) {
 
-    cmd = cmd.replace(/\s>\s\/dev\/null\s2>\&1/gi, ' ');
+    cmd = cmd.replace(/\s*>\s*\/dev\/null\s*2>\&1/gi, ' ');
     cmd = cmd.replace(/\&>\/dev\/null/gi, ' ');
   }
 
