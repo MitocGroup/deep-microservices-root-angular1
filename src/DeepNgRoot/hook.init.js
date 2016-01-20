@@ -8,6 +8,7 @@ module.exports = function(callback) {
   var exec = require('child_process').exec;
   var path = require('path');
   var fs = require('fs');
+  var os = require('os');
 
   var DEEP_TEMP = path.join(
     __dirname, './../../../deep-framework/src/deep-framework'
@@ -19,12 +20,16 @@ module.exports = function(callback) {
 
   console.log('Checking for ' + DEEP + ' globally');
 
-  var installation = exec(
-    //'npm list -g --depth 1 ' + DEEP + ' > /dev/null 2>&1
-    // || npm install -g ' + DEEP + ' --production --loglevel warn &>/dev/null',
-    'npm list -g --depth 1 ' + DEEP_TEMP +
-    ' || npm install -g ' + DEEP_TEMP + ' --production --loglevel warn',
-    function(error) {
+  var cmd = 'npm list -g --depth 1 ' + DEEP_TEMP + ' > /dev/null 2>&1' +
+    '|| npm install -g ' + DEEP_TEMP + ' --production --loglevel warn &>/dev/null';
+
+  //remove redirection stdout and stderr for Windows
+  if (os.platform().indexOf('win32') > -1 || os.platform().indexOf('win64') > -1) {
+    cmd = cmd.replace(/\s>\s\/dev\/null\s2>\&1/gi, ' ');
+    cmd = cmd.replace(/\&>\/dev\/null/gi, ' ');
+  }
+
+  var installation = exec(cmd, function(error) {
       if (error) {
         console.error('Error while installing ' + DEEP, error);
         callback();
@@ -50,6 +55,7 @@ module.exports = function(callback) {
         }
 
         var fwDep = path.join(__dirname, FW_DEP_PATH);
+
         if (!fs.existsSync(fwDep)) {
           exec('cp ' + browserFw + ' ' + fwDep, function(error) {
             if (error) {
@@ -58,7 +64,9 @@ module.exports = function(callback) {
               return;
             }
 
-            console.log('Browser version of ' + DEEP + ' was successfully copied into ' + fwDep);
+            console.log(
+              'Browser version of ' + DEEP + ' was successfully copied into ' + fwDep
+            );
             callback();
           });
         } else {
