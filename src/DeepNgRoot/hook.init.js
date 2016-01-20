@@ -21,10 +21,13 @@ module.exports = function(callback) {
   console.log('Checking for ' + DEEP + ' globally');
 
   var cmd = 'npm list -g --depth 1 ' + DEEP_TEMP + ' > /dev/null 2>&1' +
-    '|| npm install -g ' + DEEP_TEMP + ' --production --loglevel warn &>/dev/null';
+    '|| npm install -g ' + DEEP_TEMP +
+    ' --production --loglevel warn &>/dev/null';
 
   //remove redirection stdout and stderr for Windows
-  if (os.platform().indexOf('win32') > -1 || os.platform().indexOf('win64') > -1) {
+  if (os.platform().indexOf('win32') > -1 ||
+    os.platform().indexOf('win64') > -1) {
+
     cmd = cmd.replace(/\s>\s\/dev\/null\s2>\&1/gi, ' ');
     cmd = cmd.replace(/\&>\/dev\/null/gi, ' ');
   }
