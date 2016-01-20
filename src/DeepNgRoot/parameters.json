@@ -17,6 +17,13 @@
       "pattern": "^https?://[^:]+(:[^@]+)?@app\\.getsentry\\.com/[0-9]+$",
       "example": "https://72kshdbrgkebghkrb34iu5yb3ub:23l5hbk2v2jhg52uygvygvhmgv@app.getsentry.com/45747"
     },
+    "logDrivers|rum|enabled": {
+      "displayName": "Enable Real User Monitoring (RUM)?",
+      "type": "boolean",
+      "required": true,
+      "example": false,
+      "default": false
+    },
     "security|identityProviders|www.amazon.com": {
       "displayName": "Amazon Identity Provider",
       "type": "string",
