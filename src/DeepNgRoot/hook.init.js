@@ -12,7 +12,6 @@ module.exports = function(callback) {
   var DEEP_TEMP = path.join(
     __dirname, './../../../deep-framework/src/deep-framework'
   );
-  console.log('DEEP_TEMP: ', DEEP_TEMP);
 
   var DEEP = 'deep-framework';
   var BROWSER_BUILD = 'browser/framework.js';
@@ -32,8 +31,6 @@ module.exports = function(callback) {
         return;
       }
 
-      console.log('No errors, will run "npm root -g"');
-
       exec('npm root -g', function(error, stdout) {
         if (error) {
           console.error('Error getting NPM root', error);
@@ -41,13 +38,9 @@ module.exports = function(callback) {
           return;
         }
 
-        console.log('No errors after getting NPM root: ', stdout);
-
         //need to double check if it works for all
         var npmRoot = stdout.replace(/\s+/, '');
-        console.log('npmRoot: ', npmRoot);
         var fw = path.join(npmRoot, DEEP);
-        console.log('fw: ', fw);
         var browserFw = path.join(fw, BROWSER_BUILD);
 
         if (!fs.existsSync(browserFw)) {
@@ -56,10 +49,7 @@ module.exports = function(callback) {
           return;
         }
 
-        console.log('Exists browserFw: ', browserFw);
-
         var fwDep = path.join(__dirname, FW_DEP_PATH);
-        console.log('fwDep: ', fwDep);
         if (!fs.existsSync(fwDep)) {
           exec('cp ' + browserFw + ' ' + fwDep, function(error) {
             if (error) {
@@ -69,7 +59,6 @@ module.exports = function(callback) {
             }
 
             console.log('Browser version of ' + DEEP + ' was successfully copied into ' + fwDep);
-
             callback();
           });
         } else {
