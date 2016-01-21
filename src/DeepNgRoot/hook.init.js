@@ -19,12 +19,12 @@ module.exports = function(callback) {
   var cmd = 'npm list -g --depth 1 ' + DEEP + ' > /dev/null 2>&1' +
     '|| npm install -g ' + DEEP + ' --production --loglevel warn &>/dev/null';
 
-  //remove redirection stdout and stderr for Windows
-  if (os.platform().indexOf('win32') > -1 ||
-    os.platform().indexOf('win64') > -1) {
+  //redirection stdout and stderr for Windows
+  if (os.platform().indexOf('win32') !== -1 ||
+    os.platform().indexOf('win64') !== -1) {
 
-    cmd = cmd.replace(/\s*>\s*\/dev\/null\s*2>\&1/gi, ' ');
-    cmd = cmd.replace(/\&>\/dev\/null/gi, ' ');
+    cmd = 'npm list -g --depth 1 ' + DEEP + ' > NUL 2>&1' +
+      '|| npm install -g ' + DEEP + ' --production --loglevel warn &>NUL';
   }
 
   var installation = exec(cmd, function(error) {
