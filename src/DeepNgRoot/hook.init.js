@@ -16,15 +16,15 @@ module.exports = function(callback) {
 
   console.log('Checking for ' + DEEP + ' globally');
 
-  var cmd = 'npm list -g --depth 1 ' + DEEP + ' > /dev/null 2>&1' +
+  var cmd = 'npm list -g --depth 1 ' + DEEP + ' > /dev/null 2>&1 ' +
     '|| npm install -g ' + DEEP + ' --production --loglevel warn &>/dev/null';
 
   //redirection stdout and stderr for Windows
   if (os.platform().indexOf('win32') !== -1 ||
     os.platform().indexOf('win64') !== -1) {
 
-    cmd = 'npm list -g --depth 1 ' + DEEP + ' > NUL 2>&1' +
-      '|| npm install -g ' + DEEP + ' --production --loglevel warn &>NUL';
+    cmd = 'npm list -g --depth 1 ' + DEEP + ' > NUL 2>&1 ' +
+      '|| npm install -g ' + DEEP + ' --production --loglevel warn > NUL 2>&1 ';
   }
 
   var installation = exec(cmd, function(error) {
