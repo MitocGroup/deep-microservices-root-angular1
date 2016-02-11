@@ -2,6 +2,13 @@
   "frontend" : {},
   "backend" : {},
   "globals": {
+    "gtmContainerId": {
+      "displayName": "Google Tag Manager (GTM) domain identifier",
+      "type": "string",
+      "required": false,
+      "pattern": "^GTM\-[a-zA-Z0-9]+$",
+      "example": "GTM-XXXX"   
+    },
     "userProviderEndpoint": {
       "displayName": "User Provider Endpoint",
       "type": "string",
