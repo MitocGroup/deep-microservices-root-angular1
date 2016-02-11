@@ -8,7 +8,10 @@ System.config({
   defaultJSExtensions: true,
 });
 
-deepKernel.loadFromFile('_config.json', function() {
+// @todo: use constant?
+var deepGlobalConfig = window.__DEEP_CFG__;
+
+deepKernel[deepGlobalConfig ? 'load' : 'loadFromFile'](deepGlobalConfig || '_config.json', function() {
   var bootstrapScripts = deepKernel.get('deep_frontend_bootstrap_vector');
   var scripts = [];
   var mNames = [];
