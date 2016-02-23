@@ -8,7 +8,7 @@ System.config({
   defaultJSExtensions: true,
 });
 
-deepKernel.loadFromFile('_config.json', function() {
+deepKernel.bootstrap(function() {
   var bootstrapScripts = deepKernel.get('deep_frontend_bootstrap_vector');
   var scripts = [];
   var mNames = [];

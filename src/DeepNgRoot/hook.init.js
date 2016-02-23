@@ -1,23 +1,33 @@
 /**
  * Created by AlexanderC on 10/6/15.
  */
- 
+
 'use strict';
 
-var exports = module.exports = function(callback) {
+module.exports = function(callback) {
+  var exec = require('child_process').exec;
+  var path = require('path');
+  var fs = require('fs');
+  var os = require('os');
+
   var DEEP = 'deep-framework';
   var BROWSER_BUILD = 'browser/framework.js';
   var FW_DEP_PATH = 'Frontend/js/lib/deep-framework.js';
 
-  var exec = require("child_process").exec;
-  var path = require('path');
-  var fs = require('fs');
-
   console.log('Checking for ' + DEEP + ' globally');
 
-  var installation = exec(
-    'npm list -g --depth 1 ' + DEEP + ' > /dev/null 2>&1 || npm install -g ' + DEEP + ' --production --loglevel warn &>/dev/null',
-    function(error) {
+  var cmd = 'npm list -g --depth 1 ' + DEEP + ' > /dev/null 2>&1 ' +
+    '|| npm install -g ' + DEEP + ' --production --loglevel warn &>/dev/null';
+
+  //redirection stdout and stderr for Windows
+  if (os.platform().indexOf('win32') !== -1 ||
+    os.platform().indexOf('win64') !== -1) {
+
+    cmd = 'npm list -g --depth 1 ' + DEEP + ' > NUL 2>&1 ' +
+      '|| npm install -g ' + DEEP + ' --production --loglevel warn > NUL 2>&1 ';
+  }
+
+  var installation = exec(cmd, function(error) {
       if (error) {
         console.error('Error while installing ' + DEEP, error);
         callback();
@@ -31,6 +41,7 @@ var exports = module.exports = function(callback) {
           return;
         }
 
+        //need to double check if it works for all
         var npmRoot = stdout.replace(/\s+/, '');
         var fw = path.join(npmRoot, DEEP);
         var browserFw = path.join(fw, BROWSER_BUILD);
@@ -50,8 +61,11 @@ var exports = module.exports = function(callback) {
               callback();
               return;
             }
-  
-            console.log('Browser version of ' + DEEP + ' was successfully copied into ' + fwDep);
+
+            console.log(
+              'Browser version of ' + DEEP +
+              ' was successfully copied into ' + fwDep
+            );
             callback();
           });
         } else {
