@@ -27,9 +27,8 @@
     "logDrivers|rum|enabled": {
       "displayName": "Enable Real User Monitoring (RUM)?",
       "type": "boolean",
-      "required": true,
-      "example": false,
-      "default": false
+      "required": false,
+      "example": false
     },
     "security|identityProviders|www.amazon.com": {
       "displayName": "Amazon Identity Provider",
