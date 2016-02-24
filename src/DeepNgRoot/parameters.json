@@ -24,6 +24,12 @@
       "pattern": "^https?://[^:]+(:[^@]+)?@app\\.getsentry\\.com/[0-9]+$",
       "example": "https://72kshdbrgkebghkrb34iu5yb3ub:23l5hbk2v2jhg52uygvygvhmgv@app.getsentry.com/45747"
     },
+    "logDrivers|rum|enabled": {
+      "displayName": "Enable Real User Monitoring (RUM)?",
+      "type": "boolean",
+      "required": false,
+      "example": false
+    },
     "security|identityProviders|www.amazon.com": {
       "displayName": "Amazon Identity Provider",
       "type": "string",
@@ -34,16 +40,38 @@
     "api|cache|enabled": {
       "displayName": "Enable API caching?",
       "type": "boolean",
-      "required": true,
-      "example": false,
-      "default": false
+      "required": false,
+      "example": false
     },
     "api|cache|clusterSize": {
       "displayName": "API cache cluster size ('0.5', '1.6', '6.1', '13.5', '28.4', '58.2', '118', '237') GB",
       "type": "string",
-      "required": true,
-      "example": "0.5",
-      "default": "0.5"
+      "required": false,
+      "example": "0.5"
+    },
+    "api|cloudWatch|logging|enabled": {
+      "displayName": "Enable CloudWatch logs for API Gateway?",
+      "type": "boolean",
+      "required": false,
+      "example": false
+    },
+    "api|cloudWatch|logging|logLevel": {
+      "displayName": "API Gateway CloudWatch log level ('OFF', 'INFO', 'ERROR')?",
+      "type": "string",
+      "required": false,
+      "example": "INFO"
+    },
+    "api|cloudWatch|logging|dataTrace": {
+      "displayName": "Log full requests/responses data for API Gateway?",
+      "type": "boolean",
+      "required": false,
+      "example": false
+    },
+    "api|cloudWatch|metrics": {
+      "displayName": "Enable CloudWatch metrics for API Gateway?",
+      "type": "boolean",
+      "required": false,
+      "example": false
     }
   }
 }
