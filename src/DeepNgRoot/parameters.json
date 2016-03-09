@@ -2,12 +2,26 @@
   "frontend" : {},
   "backend" : {},
   "globals": {
+    "pageLoader|src": {
+      "displayName": "Page loader source",
+      "type": "string",
+      "required": false,
+      "pattern": "^@[^:]+:(?:\\/?[\\w\\-\\d]+)+\\.(png|jpg|gif)$",
+      "default": "@deep.ng.root:img/loader.gif",
+      "example": "@deep.ng.root:img/loader.gif"
+    },
+    "pageLoader|alt": {
+      "displayName": "Page loader source",
+      "type": "string",
+      "required": false,
+      "example": "Page loader"
+    },
     "gtmContainerId": {
       "displayName": "Google Tag Manager (GTM) domain identifier",
       "type": "string",
       "required": false,
       "pattern": "^GTM\\-[a-zA-Z0-9]+$",
-      "example": "GTM-XXXX"   
+      "example": "GTM-XXXX"
     },
     "userProviderEndpoint": {
       "displayName": "User Provider Endpoint",
