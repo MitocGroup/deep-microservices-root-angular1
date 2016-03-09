@@ -11,9 +11,10 @@
       "example": "@deep.ng.root:img/loader.gif"
     },
     "pageLoader|alt": {
-      "displayName": "Page loader source",
+      "displayName": "Page loader alternate text",
       "type": "string",
       "required": false,
+      "default": "Page loader",
       "example": "Page loader"
     },
     "gtmContainerId": {
