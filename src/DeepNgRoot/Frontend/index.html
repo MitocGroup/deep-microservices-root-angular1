@@ -5,15 +5,38 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
         <link rel="icon" href="img/favicon.ico" type="image/x-icon"/>
-        
+
+        <style>
+            .loading {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+            }
+
+            .loading img {
+                max-width: none
+            }
+
+            .faded-out {
+                opacity: 0 !important;
+            }
+        </style>
+
         <deep-deployId/>
+        <deep-root-assets/>
     </head>
     <body class="custom-body">
         <deep-gtm/>
         <deep-config/>
 
+        <div id="page-not-loaded" ng-class="{'faded-out' : $root.loaded}">
+            <div class="loading">
+                <deep-loader/>
+            </div>
+        </div>
+
         <div ui-view></div>
-        
+
         <!--Module scripts-->
         <script src="/js/lib/deep-framework.js"></script>
         <script src="/js/lib/traceur.min.js"></script>
