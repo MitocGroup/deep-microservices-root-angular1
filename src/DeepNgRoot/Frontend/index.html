@@ -4,8 +4,23 @@
         <title update-title></title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-        <link rel="stylesheet" href="stylesheets/page-loading.css"/>
         <link rel="icon" href="img/favicon.ico" type="image/x-icon"/>
+
+        <style>
+            .loading {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+            }
+
+            .loading img {
+                max-width: none
+            }
+
+            .faded-out {
+                opacity: 0 !important;
+            }
+        </style>
 
         <deep-deployId/>
         <deep-root-assets/>

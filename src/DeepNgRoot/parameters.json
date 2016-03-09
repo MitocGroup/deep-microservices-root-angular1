@@ -14,8 +14,8 @@
       "displayName": "Page loader alternate text",
       "type": "string",
       "required": false,
-      "default": "Page loader",
-      "example": "Page loader"
+      "default": "Loading...",
+      "example": "Loading..."
     },
     "gtmContainerId": {
       "displayName": "Google Tag Manager (GTM) domain identifier",
