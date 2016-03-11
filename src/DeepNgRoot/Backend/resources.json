@@ -1,3 +1,13 @@
 {
-
+  "async-config": {
+    "dump": {
+      "description": "Lambda that checks delayed services availability and dump a config file",
+      "type": "lambda",
+      "forceUserIdentity": false,
+      "scope": "private",
+      "cron": "0/10 * * * ? *",
+      "methods": ["GET"],
+      "source": "src/AsyncConfig/Dump"
+    }
+  }
 }
