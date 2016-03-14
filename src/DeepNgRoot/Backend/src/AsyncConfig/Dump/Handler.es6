@@ -38,13 +38,13 @@ export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
    */
   _getFakePropertyConfig() {
     return {
-      env: this.kernel.env,
-      appIdentifier: '',
-      awsAccountId: '',
+      env: this.kernel.config.env,
+      appIdentifier: 'deep.fake.app',
+      awsAccountId: '012345678901',
       aws: {
-        accessKeyId: '',
-        secretAccessKey: '',
-        region: this.kernel.awsRegion
+        accessKeyId: 'accessKeyId',
+        secretAccessKey: 'secretAccessKey',
+        region: this.kernel.config.awsRegion
       }
     };
   }
