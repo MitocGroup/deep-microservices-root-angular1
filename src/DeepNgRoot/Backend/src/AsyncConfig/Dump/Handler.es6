@@ -4,6 +4,7 @@
 
 'use strict';
 
+import AWS from 'aws-sdk';
 import DeepFramework from 'deep-framework';
 import {Property_Instance as Property} from 'deep-package-manager';
 import {Provisioning_Describer as ServicesDescriber} from 'deep-package-manager';
@@ -16,7 +17,7 @@ export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
     super(...args);
 
     this._describer = new ServicesDescriber(
-      new Property('/', this._getFakePropertyConfig()),
+      new Property('/', this._getPropertyConfig()),
       this.kernel.config
     );
   }
@@ -36,15 +37,16 @@ export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
    * @returns {Object}
    * @private
    */
-  _getFakePropertyConfig() {
+  _getPropertyConfig() {
     return {
       env: this.kernel.config.env,
-      appIdentifier: 'deep.fake.app',
-      awsAccountId: '012345678901',
+      appIdentifier: this.kernel.config.appIdentifier,
+      awsAccountId: this.kernel.config.awsAccountId,
       aws: {
-        accessKeyId: 'accessKeyId',
-        secretAccessKey: 'secretAccessKey',
-        region: this.kernel.config.awsRegion
+        accessKeyId: AWS.config.credentials.accessKeyId,
+        secretAccessKey: '',
+        sessionToken: AWS.config.credentials.sessionToken,
+        region: AWS.config.region
       }
     };
   }
