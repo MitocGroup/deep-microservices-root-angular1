@@ -15,19 +15,17 @@ export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
    */
   constructor(...args) {
     super(...args);
+  }
 
+  /**
+   * @param request
+   */
+  handle(request) {
     this._describer = new ServicesDescriber(
       new Property('/', this._getPropertyConfig()),
       this.kernel.config
     );
-  }
 
-  /**
-   * @TBD
-   *
-   * @param request
-   */
-  handle(request) {
     this._describer.describe((result) => {
       return this.createResponse(result).send();
     });
