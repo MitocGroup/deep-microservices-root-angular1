@@ -37,9 +37,15 @@ export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
 
       let asyncConfig = this._generateAsyncConfig(result.resources);
 
-      //sharedFs.writeFile();
+      sharedFs.writeFile(this.kernel.constructor.ASYNC_CONFIG_FILE, JSON.stringify(asyncConfig), (error) => {
+        if (error) {
+          throw new DeepFramework.Core.Exception(
+            `Error on persisting ${this.kernel.constructor.ASYNC_CONFIG_FILE} file in shared FS. ${error}`
+          );
+        }
 
-      return this.createResponse(asyncConfig).send();
+        return this.createResponse(asyncConfig).send();
+      });
     });
   }
 
