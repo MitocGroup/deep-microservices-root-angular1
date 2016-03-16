@@ -21,14 +21,60 @@ export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
    * @param request
    */
   handle(request) {
+    let logger = this.kernel.get('log');
+    let sharedFs = this.kernel.get('fs').shared();
+
     this._describer = new ServicesDescriber(
       new Property('/', this._getPropertyConfig()),
       this.kernel.config
     );
 
     this._describer.describe((result) => {
-      return this.createResponse(result).send();
+      //@todo - do not disable this scheduled lambda if there are any errors ...
+      if (Object.keys(result.errors).length !== 0 ) {
+        logger.warn(`Error on describing ${ServicesDescriber.SERVICES.join(', ')} services.`, result.errors);
+      }
+
+      let asyncConfig = this._generateAsyncConfig(result.resources);
+
+      //sharedFs.writeFile();
+
+      return this.createResponse(asyncConfig).send();
     });
+  }
+
+  /**
+   * @param {Object} servicesInfo
+   * @private
+   */
+  _generateAsyncConfig(servicesInfo) {
+    let appConfig = this.kernel.config;
+    let asyncConfig = {};
+
+    // lookup for ES endpoints
+    for (let domainKey in appConfig.searchDomains) {
+      if (!appConfig.searchDomains.hasOwnProperty(domainKey)) {
+        continue;
+      }
+
+      asyncConfig.searchDomains = {};
+
+      let domain = appConfig.searchDomains[domainKey];
+
+      if (domain.type === DeepFramework.Core.AWS.Service.ELASTIC_SEARCH) {
+        let esAsyncConfig = servicesInfo.ES || {};
+
+        if (esAsyncConfig.hasOwnProperty(domain.name)) {
+          let asyncEs = esAsyncConfig[domain.name];
+
+          asyncConfig.searchDomains[domainKey] = {
+            url: asyncEs.Endpoint,
+          }
+        }
+      }
+    }
+
+    return asyncConfig;
   }
 
   /**
