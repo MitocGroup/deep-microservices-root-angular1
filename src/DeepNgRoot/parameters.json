@@ -3,10 +3,10 @@
   "backend" : {},
   "globals": {
     "applicationId": {
-      "displayName": "Application id",
+      "displayName": "Application identifier",
       "type": "string",
       "required": false,
-      "example": "0.0.1"
+      "example": "app-010"
     },
     "pageLoader|src": {
       "displayName": "Page loader source",
