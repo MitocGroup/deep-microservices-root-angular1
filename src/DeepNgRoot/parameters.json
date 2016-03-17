@@ -2,6 +2,12 @@
   "frontend" : {},
   "backend" : {},
   "globals": {
+    "applicationId": {
+      "displayName": "Application identifier",
+      "type": "string",
+      "required": false,
+      "example": "app-010"
+    },
     "pageLoader|src": {
       "displayName": "Page loader source",
       "type": "string",
