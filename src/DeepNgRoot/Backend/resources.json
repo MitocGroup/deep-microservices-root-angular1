@@ -9,5 +9,15 @@
       "methods": ["GET"],
       "source": "src/AsyncConfig/Dump"
     }
+  },
+  "scheduler": {
+    "rule": {
+      "description": "Enable/disable Lambda scheduled rule",
+      "type": "lambda",
+      "forceUserIdentity": false,
+      "scope": "private",
+      "methods": ["GET"],
+      "source": "src/Scheduler/Rule"
+    }
   }
 }
