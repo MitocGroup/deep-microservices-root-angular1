@@ -24,11 +24,12 @@
       "example": "Loading..."
     },
     "engine|ngRewrite": {
-      "displayName": "Page loader alternate text",
+      "displayName": "Prefix for application links (# or /)",
       "type": "string",
       "required": false,
+      "pattern": "[#|/]",
       "default": "/",
-      "example": "#"
+      "example": "/"
     },
     "gtmContainerId": {
       "displayName": "Google Tag Manager (GTM) domain identifier",
