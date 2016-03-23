@@ -23,6 +23,13 @@
       "default": "Loading...",
       "example": "Loading..."
     },
+    "engine|ngRewrite": {
+      "displayName": "Page loader alternate text",
+      "type": "string",
+      "required": false,
+      "default": "/",
+      "example": "#"
+    },
     "gtmContainerId": {
       "displayName": "Google Tag Manager (GTM) domain identifier",
       "type": "string",
