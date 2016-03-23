@@ -9,13 +9,16 @@ import {Config} from './ng-config';
 export function registerModules(moduleNames) {
   registerModule(moduleNames);
 
-  let kernel = DeepFramework.Kernel;
   angular.module(moduleName).run(['$rootScope', (...args) => {
     return new Run(...args);
   },
   ])
   .config(['$locationProvider', function(...args) {
-    return new Config(kernel.isLocalhost, kernel.config.globals.engine.ngRewrite, ...args);
+    let kernel = DeepFramework.Kernel;
+    let isLocalhost = kernel.isLocalhost;
+    let ngRewrite = kernel.config.globals.engine.ngRewrite;
+
+    return new Config(isLocalhost, ngRewrite, ...args);
   },
   ]);
 }
