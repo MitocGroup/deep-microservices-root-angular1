@@ -27,7 +27,7 @@
       "displayName": "Prefix for application links (# or /)",
       "type": "string",
       "required": false,
-      "pattern": "[#|/]",
+      "pattern": "^[#|/]$",
       "default": "/",
       "example": "/"
     },
