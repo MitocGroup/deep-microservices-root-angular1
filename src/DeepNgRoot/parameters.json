@@ -23,6 +23,14 @@
       "default": "Loading...",
       "example": "Loading..."
     },
+    "engine|ngRewrite": {
+      "displayName": "Prefix for application links (# or /)",
+      "type": "string",
+      "required": false,
+      "pattern": "^[#|/]$",
+      "default": "/",
+      "example": "/"
+    },
     "gtmContainerId": {
       "displayName": "Google Tag Manager (GTM) domain identifier",
       "type": "string",
