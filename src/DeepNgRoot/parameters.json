@@ -46,6 +46,12 @@
       "example": "@deep.auth:user:retrieve",
       "default": "@deep.auth:user:retrieve"
     },
+    "search|enabled": {
+      "displayName": "Enable Search cluster?",
+      "type": "boolean",
+      "required": false,
+      "example": false   
+    },
     "logDrivers|sentry|dsn": {
       "displayName": "Sentry DSN",
       "type": "string",
