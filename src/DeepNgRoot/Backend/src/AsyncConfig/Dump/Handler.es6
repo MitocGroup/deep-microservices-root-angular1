@@ -8,6 +8,7 @@ import AWS from 'aws-sdk';
 import DeepFramework from 'deep-framework';
 import {Property_Instance as Property} from 'deep-package-manager';
 import {Provisioning_Describer as ServicesDescriber} from 'deep-package-manager';
+import {AsyncConfig} from './AsyncConfig';
 
 export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
   /**
@@ -23,64 +24,65 @@ export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
   handle(request) {
     let logger = this.kernel.get('log');
     let sharedFs = this.kernel.get('fs').shared();
-
-    this._describer = new ServicesDescriber(
+    let describer = new ServicesDescriber(
       new Property('/', this._getPropertyConfig()),
       this.kernel.config
     );
 
-    this._describer.describe((result) => {
-      //@todo - do not disable this scheduled lambda if there are any errors ...
-      if (Object.keys(result.errors).length !== 0 ) {
-        logger.warn(`Error on describing ${ServicesDescriber.SERVICES.join(', ')} services.`, result.errors);
+    let asyncConfig = new AsyncConfig(describer);
+
+    asyncConfig.generate((errors, config) => {
+      if (Object.keys(errors).length !== 0 ) {
+        logger.warn(`Error on generating async config.`, errors);
       }
 
-      let asyncConfig = this._generateAsyncConfig(result.resources);
-
-      sharedFs.writeFile(this.kernel.constructor.ASYNC_CONFIG_FILE, JSON.stringify(asyncConfig), (error) => {
+      sharedFs.writeFile(this.kernel.constructor.ASYNC_CONFIG_FILE, JSON.stringify(config), (error) => {
         if (error) {
           throw new DeepFramework.Core.Exception(
             `Error on persisting ${this.kernel.constructor.ASYNC_CONFIG_FILE} file in shared FS. ${error}`
           );
         }
 
-        return this.createResponse(asyncConfig).send();
+        if (asyncConfig.ready) {
+          this._invalidateCachedAsyncConfig((error) => {
+            error ?
+              logger.warn('Error on invalidating cached async config.', error) :
+              this._selfDisable();
+
+            this.createResponse(config).send();
+          });
+
+          return;
+        }
+
+        this.createResponse(config).send();
       });
     });
   }
 
   /**
-   * @param {Object} servicesInfo
    * @private
    */
-  _generateAsyncConfig(servicesInfo) {
-    let appConfig = this.kernel.config;
-    let asyncConfig = {};
+  _selfDisable() {
+    let resource = this.kernel.get('resource');
+    let lambda = resource.get('@deep.ng.root:scheduler:rule');
+    let payload = {
+      effect: 'disable',
+      lambdaName: this.context.invokedFunctionArn
+    };
 
-    // lookup for ES endpoints
-    for (let domainKey in appConfig.searchDomains) {
-      if (!appConfig.searchDomains.hasOwnProperty(domainKey)) {
-        continue;
-      }
+    lambda.request(payload).invokeAsync().send();
+  }
 
-      asyncConfig.searchDomains = {};
+  /**
+   * @param {Function} callback
+   * @private
+   */
+  _invalidateCachedAsyncConfig(callback) {
+    let cache = this.kernel.get('cache');
+    let cacheKey = this.kernel.constructor.ASYNC_CONFIG_CACHE_KEY;
 
-      let domain = appConfig.searchDomains[domainKey];
-
-      if (domain.type === DeepFramework.Core.AWS.Service.ELASTIC_SEARCH) {
-        let esAsyncConfig = servicesInfo.ES || {};
-
-        if (esAsyncConfig.hasOwnProperty(domain.name)) {
-          let asyncEs = esAsyncConfig[domain.name];
-
-          asyncConfig.searchDomains[domainKey] = {
-            url: asyncEs.Endpoint,
-          }
-        }
-      }
-    }
-
-    return asyncConfig;
+    cache.invalidate(cacheKey, 0, callback);
   }
 
   /**
