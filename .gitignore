@@ -33,3 +33,14 @@ node_modules
 deeploy.json
 
 deep-framework.js
+
+# Transpiled Lambdas code
+**/Backend/src/**/*.js
+
+# Lambda archives and checksums
+**/Backend/src/**/*.zip
+**/Backend/src/**/*.sfv
+**/Backend/src/**/_config.json
+
+# Deploy config file
+*.provisioning.json
