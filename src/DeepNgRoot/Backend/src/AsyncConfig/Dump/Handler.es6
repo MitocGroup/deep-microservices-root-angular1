@@ -38,7 +38,7 @@ export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
 
       sharedFs.writeFile(this.kernel.constructor.ASYNC_CONFIG_FILE, JSON.stringify(config), (error) => {
         if (error) {
-          throw new DeepFramework.Core.Exception(
+          throw new DeepFramework.Core.Exception.Exception(
             `Error on persisting ${this.kernel.constructor.ASYNC_CONFIG_FILE} file in shared FS. ${error}`
           );
         }
@@ -68,7 +68,7 @@ export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
     let lambda = resource.get('@deep.ng.root:scheduler:rule');
     let payload = {
       effect: 'disable',
-      lambdaName: this.context.invokedFunctionArn
+      lambdaName: this.context.functionName
     };
 
     lambda.request(payload).invokeAsync().send();

@@ -34,7 +34,7 @@ export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
 
     cloudWatchEvents[`${effect}Rule`]({Name: rule,}, (error) => {
       if (error) {
-        throw new DeepFramework.Core.Exception(
+        throw new DeepFramework.Core.Exception.Exception(
           `Error ${effect}ing Schedule Rule '${rule}': ${error}`
         );
       }
