@@ -43,19 +43,15 @@ export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
           );
         }
 
-        if (asyncConfig.ready) {
-          this._invalidateCachedAsyncConfig((error) => {
-            error ?
-              logger.warn('Error on invalidating cached async config.', error) :
-              this._selfDisable();
+        this._invalidateCachedAsyncConfig((error) => {
+          if (error) {
+            logger.warn('Error on invalidating cached async config.', error);
+          } else if (asyncConfig.ready) {
+            this._selfDisable();
+          }
 
-            this.createResponse(config).send();
-          });
-
-          return;
-        }
-
-        this.createResponse(config).send();
+          this.createResponse(config).send();
+        });
       });
     });
   }
