@@ -3,6 +3,7 @@ sudo: false
 node_js:
   - '0.12'
   - '4.3'
+  - '5.9'
 cache:
   directories:
     - $(npm root -g)
@@ -31,7 +32,6 @@ before_install:
   - npm install -g jasmine-core@2.3.x
   - npm install -g istanbul@0.3.x
   - npm install -g istanbul-combine@0.3.x
-  - npm install -g phantomjs@1.9.18
   - npm install -g karma@0.13.x
   - npm install -g karma-jspm@2.0.x
   - npm install -g karma-jasmine@0.3.x
