@@ -1,0 +1,33 @@
+{
+  "name": "deep-system-async-config-dump",
+  "version": "0.0.1",
+  "description": "Checks delayed services availability and dump a config file",
+  "author": "Mitoc Group <hello@mitocgroup.com>",
+  "contributors": [
+    {
+      "name": "Marcel Goria",
+      "email": "mgoria@mitocgroup.com"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/MitocGroup/deep-microservices-root-angularjs/issues"
+  },
+  "keywords": [
+    "DEEP",
+    "Config",
+    "AsyncConfig"
+  ],
+  "scripts": {
+    "postinstall": "npm run compile",
+    "compile": "deepify compile-es6 `pwd`"
+  },
+  "dependencies": {
+    "deep-framework": "^1.x.x",
+    "deep-package-manager": "^1.x.x"
+  },
+  "devDependencies": {
+  },
+  "preferGlobal": false,
+  "private": true,
+  "analyze": true
+}
