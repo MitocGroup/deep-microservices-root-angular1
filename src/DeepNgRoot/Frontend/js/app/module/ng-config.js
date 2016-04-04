@@ -9,7 +9,9 @@ export class Config {
    * @param {Object} $locationProvider
    */
   constructor(isLocalhost, ngRewrite, $locationProvider) {
-    if (!isLocalhost && ngRewrite === '/') {
+    let isS3Website = /\.amazonaws\.com$/i.test(window.location.hostname);
+
+    if (!isS3Website && !isLocalhost && ngRewrite === '/') {
       $locationProvider.html5Mode(true);
     }
   }

@@ -20,9 +20,7 @@ env:
     - secure: JPDpkgI8/BEII4eoCv8h4YJYGb+YO64EvbCsUpAFB1QYddb/MrFXnEAOQqnFi9GKd3LqtW1CX40waTKyVg7tAbEoenQn2x3BVKgeDwzAytsXQaILmlxfdR/N1oBYpZevTJCkBTwec0KqZzaYwL6XTvBHE3wMERvZIAhzXH8U/cX/GO78oUA4xg5datkBi2/lx0GHAgVI8/5k3OO8UpGN4ZPQXlS/I787fW98Rusrs8uw/ph+UauI3fW+6mSVZwGHbs4E1ijud4S84bGnBv+4iWgMarmpL/oLzX/ArCy9hKA35GVPlotHZ3bPYpi+rar12iySfMGDUcCmkkAf45ZfNXhyNIXD72uIeKt41DXqp1OzI0m4M59NChy5AYzhytX49kma21i/MnLweanwywL6nGVtaq7UVeSPsp8x19Pjo69QWpgND8iKuU+6hCK08tjSA4iv/UuYvmXM3P9yya3Ppa/mU1q1C9K0WXWFSbW8rSqpHnLG76jDTbN5g5uu+TIzB65ylNb6h8izlpKWww8fzrMAIvWMp4GvnT+3/RAIwIb9nsaqefDxEVaUXvUWG8yciiDn1yQKQAN3J694o7PPloU/AAQVdbARZPvQKesodwu/aaaCel647wV4sXl8nOqpbDT66iqwDUiIwj3BAF5GOU3Xs9A+PVS/A7aDrt8Mk/E=
 before_install:
   - cp test/package.json .
-  - npm install -g deepify
   - npm install -g jspm@0.16.15
-  - jspm config registries.github.auth $JSPM_GITHUB_AUTH_TOKEN
   - npm install -g babel@5.8.x
   - npm install -g browserify@11.2.x
   - npm install -g jscs@2.1.x
@@ -42,5 +40,7 @@ before_install:
   - npm install -g karma-verbose-reporter@0.0.3
   - npm install -g karma-phantomjs-launcher@0.2.1
   - npm install -g karma-ng-html2js-preprocessor@0.2.0
+  - npm install -g deepify
+  - jspm config registries.github.auth $JSPM_GITHUB_AUTH_TOKEN
 after_success:
   - npm run coverage
