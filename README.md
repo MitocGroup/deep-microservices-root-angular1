@@ -1,115 +1,100 @@
-![Digital Enterprise End-to-end Platform Microservices](https://github.com/MitocGroup/deep-microservices-helloworld/blob/master/src/DeepHelloWorld/Frontend/img/logo.png) DEEP Root AngularJS 
-=====================
+deep-microservices-root-angular
+===============================
 
-[![Build Status](https://travis-ci.org/MitocGroup/deep-microservices-root-angularjs.svg?branch=master)](https://travis-ci.org/MitocGroup/deep-microservices-root-angularjs)
-[![Codacy Badge](https://api.codacy.com/project/badge/coverage/ef7c8d169940408dbeb10c634c8b4259)](https://www.codacy.com/app/MitocGroup/deep-microservices-root-angularjs)
+[![Build Status](https://travis-ci.org/MitocGroup/deep-microservices-root-angular.svg?branch=master)](https://travis-ci.org/MitocGroup/deep-microservices-root-angular)
+[![Codacy Badge](https://api.codacy.com/project/badge/coverage/ef7c8d169940408dbeb10c634c8b4259)](https://www.codacy.com/app/MitocGroup/deep-microservices-root-angular)
 
-[Digital Enterprise End-to-end Platform](https://github.com/MitocGroup/deep-framework) (also known as DEEP) is low cost and low maintenance Platform-as-a-Service powered by abstracted services (also known as serverless environments) from AWS.
+deep-microservices-root-angular is the fundamental building block used by cloud-native web applications
+built on top of [DEEP Framework](https://github.com/MitocGroup/deep-framework) and
+[Angular JS](https://angularjs.org). This microservice provides the root structure of the web application 
+that is developed using Angular framework and AngularUI module.
 
-## Getting Started [![Join char on gitter.im](https://img.shields.io/badge/%E2%8A%AA%20gitter%20-join%20chat%20%E2%86%92-brightgreen.svg)](https://gitter.im/MitocGroup/deep-framework)
 
-### How to add AgularJS module
+## Getting Started
 
-**DeepNgRoot** is a root micro-service which provides [AngularJS](https://angularjs.org/) and [AngularUI Router](https://github.com/angular-ui/ui-router) module.
+### Step 1. Pre-requisites
 
-It automatically loads each bootstrap.js micro-service and attaches the angular module declared.
+- [x] [Create an Amazon Web Services account](https://www.youtube.com/watch?v=WviHsoz8yHk)
+- [x] [Configure AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html)
+- [x] [Get Started - Installing Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+- [x] [JDK 8 and JRE 8 Installation Start Here](https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html)
+- [x] [Install nvm](https://github.com/creationix/nvm#install-script) and [use node v4.3+](https://github.com/creationix/nvm#usage)
+- [ ] Install DEEP CLI, also known as `deepify`:
 
-To connect your angular module you have to export the function with the name of the angular module as _default_.
-
-> The exported function must return _Promise_.
-
-```javascript
-export default function moduleName() {
-  return System.import('angular_module.js');
-};
-```
-### Hooks
-
-The functions exported by a third-party micro services are executed before load AngularJS and its modules .
-
-> All hooks are optional
-
-**configLoad** - The function to load the settings for the remaining scripts. Performed first.
-
-> The exported function must return _Promise_.
-
-```javascript
-export function configLoad() {
-  return System.import('deep.core/js/config.core.js');
-}
+```bash
+npm install deepify -g
 ```
 
-**loadFirst** - The function to load scripts before AngularJS.
+> If you want to use `deepify` on Windows, please follow the steps from
+[Windows Configuration](https://github.com/MitocGroup/deep-framework/blob/master/docs/windows.md)
+before running `npm install deepify -g` and make sure all `npm` and `deepify` commands are executed
+inside Git Bash.
 
-> The exported function must return _Promise_.
+### Step 2. Install Microservice(s) Locally
 
-```javascript
-export function loadFirst() {
-  let scripts = [
-    Promise.resolve(System.import('jquery')),
-    Promise.resolve(System.import('velocity')),
-  ];
-
-  return Promise.all(scripts);
-}
+```bash
+deepify install github://MitocGroup/deep-microservices-helloworld ~/deep-microservices-helloworld
 ```
 
-### Dynamic page title
+> Path parameter in all `deepify` commands is optional and if not specified, assumes current
+working directory. Therefore you can skip `~/deep-microservices-helloworld` by executing
+`mkdir ~/deep-microservices-helloworld && cd ~/deep-microservices-helloworld` before `deepify install`.
 
-To set page title you have specify pageTitle parameter in the ui-router config as shown in example.
+### Step 3. Run Microservice(s) in Development
 
-```javascript
-angular.module('moduleName').config(function($stateProvider, $urlRouterProvider) {
-$urlRouterProvider.otherwise('/home');
-$stateProvider
-    .state('home', {
-        url: '/home',
-        templateUrl : 'home.html',
-        data : { pageTitle: 'Home' }
-    });
-});
+```bash
+deepify server ~/deep-microservices-helloworld -o
 ```
 
+> When this step is finished, you can open in your browser the link *http://localhost:8000*
+and enjoy the deep-microservices-helloworld running locally.
 
-## How can I get involved? [![Join char on gitter.im](https://img.shields.io/badge/%E2%8A%AA%20gitter%20-join%20chat%20%E2%86%92-brightgreen.svg)](https://gitter.im/MitocGroup/deep-framework)
+### Step 4. Run Microservice(s) in Production
 
-### Feedback
+```bash
+deepify deploy ~/deep-microservices-helloworld
+```
 
-We are eager to get your feedback, so please use whatever communication channel you prefer:
-- [github issues](https://github.com/MitocGroup/deep-microservices-root-angularjs/issues)
-- [gitter chat room](https://gitter.im/MitocGroup/deep-framework)
-- [deep email address](mailto:feedback@deep.mg)
+> Amazon CloudFront distribution takes up to 20 minutes to provision, therefore don’t worry
+if it returns an HTTP error in the first couple of minutes.
 
-### Contribution
+### Step 5. Remove Microservice(s) from Production
 
-This project is open source, and we encourage developers to contribute. Here below is the easiest way to do so:
+```bash
+deepify undeploy ~/deep-microservices-helloworld
+```
 
-1. [Fork](http://help.github.com/forking/) this repository in GitHub.
-2. Develop the feature in your repository. Make one or more commits to your repository in GitHub.
-3. Perform a [pull request](http://help.github.com/pull-requests/) from your repository back into original repository in GitHub.
+> Amazon CloudFront distribution takes up to 20 minutes to unprovision. That's why `deepify`
+command checks every 30 seconds if it's disabled and when successful, removes it from your account.
 
-Make sure you update `package.json` (or `deepkg.json`, depends on the use case) and put your name and contact information in contributors section. We would like to recognize the work and empower every contributor in creative ways :)
 
-### Roadmap
+## Developer Resources
 
-Our short-to-medium-term roadmap items, in order of descending priority:
+Having questions related to deep-microservices-root-angular?
 
-Feature | Details | Owner
---------|---------|------
-Increase code coverage | To be updated | [@vcernomschi](https://github.com/vcernomschi)
-Implement end-to-end testing | To be updated | [@vcernomschi](https://github.com/vcernomschi)
+- Ask questions: https://stackoverflow.com/questions/tagged/deep-framework
+- Chat with us: https://gitter.im/MitocGroup/deep-framework
+- Send an email: feedback@deep.mg
 
-### Changelog
+Interested in contributing to deep-microservices-root-angular?
 
-Changelog files are located in `/changelog` folder.
-> See [CHANGELOG.md](https://github.com/MitocGroup/deep-microservices-root-angularjs/blob/master/CHANGELOG.md) for latest changelog.
+- Contributing: https://github.com/MitocGroup/deep-microservices-root-angular/blob/master/CONTRIBUTING.md
+- Issue tracker: https://github.com/MitocGroup/deep-microservices-root-angular/issues
+- Releases: https://github.com/MitocGroup/deep-microservices-root-angular/releases
+- Roadmap: https://github.com/MitocGroup/deep-microservices-root-angular/blob/master/ROADMAP.md
 
-### License
+Looking for web applications that use (or are similar to) deep-microservices-root-angular?
 
-This repository can be used under the MIT license.
-> See [LICENSE](https://github.com/MitocGroup/deep-microservices-root-angularjs/blob/master/LICENSE) for more details.
+- Hello World: https://hello.deep.mg | https://github.com/MitocGroup/deep-microservices-helloworld
+- Todo App: https://todo.deep.mg | https://github.com/MitocGroup/deep-microservices-todo-app
+- Enterprise Software Marketplace: https://www.deep.mg
 
-### Sponsors
+
+## Sponsors
 
 This repository is being sponsored by:
-> [Mitoc Group](http://www.mitocgroup.com)
+- [Mitoc Group](https://www.mitocgroup.com)
+- [DEEP Marketplace](https://www.deep.mg)
+
+This code can be used under MIT license:
+> See [LICENSE](https://github.com/MitocGroup/deep-microservices-root-angular/blob/master/LICENSE) for more details.
