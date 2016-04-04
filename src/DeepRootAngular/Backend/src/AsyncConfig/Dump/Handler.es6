@@ -61,7 +61,7 @@ export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
    */
   _selfDisable() {
     let resource = this.kernel.get('resource');
-    let lambda = resource.get('@deep.ng.root:scheduler:rule');
+    let lambda = resource.get('@deep-root-angular:scheduler:rule');
     let payload = {
       effect: 'disable',
       lambdaName: this.context.functionName
