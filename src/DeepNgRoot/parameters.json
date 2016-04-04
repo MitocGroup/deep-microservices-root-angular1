@@ -38,14 +38,6 @@
       "pattern": "^GTM\\-[a-zA-Z0-9]+$",
       "example": "GTM-XXXX"
     },
-    "userProviderEndpoint": {
-      "displayName": "User Provider Endpoint",
-      "type": "string",
-      "required": true,
-      "pattern": "^@[^:]+:[^:]+:[^:]+$",
-      "example": "@deep.auth:user:retrieve",
-      "default": "@deep.auth:user:retrieve"
-    },
     "search|enabled": {
       "displayName": "Enable Search cluster?",
       "type": "boolean",
@@ -64,13 +56,6 @@
       "type": "boolean",
       "required": false,
       "example": false
-    },
-    "security|identityProviders|www.amazon.com": {
-      "displayName": "Amazon Identity Provider",
-      "type": "string",
-      "required": true,
-      "example": "amzn1.application.3b5k2jb53252352kjh5b23kj5hb",
-      "default": "amzn1.application.3b5k2jb53252352kjh5b23kj5hb"
     },
     "api|cache|enabled": {
       "displayName": "Enable API caching?",
