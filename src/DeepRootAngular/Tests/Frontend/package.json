@@ -1,6 +1,6 @@
 {
-  "name": "DeepNgRootFrontend",
-  "version": "0.0.0",
+  "name": "DeepRootAngularFrontend",
+  "version": "0.0.1",
   "description": "DEEP Micro Services Root Frontend",
   "scripts": {
     "postinstall": "jspm install",

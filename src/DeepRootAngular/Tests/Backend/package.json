@@ -1,6 +1,6 @@
 {
-  "name": "DeepNgRootBackend",
-  "version": "0.0.0",
+  "name": "DeepRootAngularBackend",
+  "version": "0.0.1",
   "description": "DEEP Micro Services Root Backend",
   "scripts": {
     "install": "echo \"No install specified\" && exit 0",
