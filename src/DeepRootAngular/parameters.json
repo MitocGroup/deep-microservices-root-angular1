@@ -13,8 +13,8 @@
       "type": "string",
       "required": false,
       "pattern": "^@[^:]+:(?:\\/?[\\w\\-\\d]+)+\\.(png|jpg|gif)$",
-      "default": "@deep.ng.root:img/loader.gif",
-      "example": "@deep.ng.root:img/loader.gif"
+      "default": "@deep-root-angular:img/loader.gif",
+      "example": "@deep-root-angular:img/loader.gif"
     },
     "pageLoader|alt": {
       "displayName": "Page loader alternate text",
