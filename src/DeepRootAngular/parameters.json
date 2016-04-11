@@ -8,6 +8,14 @@
       "required": false,
       "example": "1.2.3"
     },
+    "favicon": {
+      "displayName": "Favicon",
+      "type": "string",
+      "required": false,
+      "pattern": "^@[^:]+:(?:\\/?[\\w\\-\\d]+)+\\.(ico)$",
+      "default": "@deep-root-angular:img/favicon.ico",
+      "example": "@deep-root-angular:img/favicon.ico"
+    },
     "pageLoader|src": {
       "displayName": "Page loader source",
       "type": "string",
