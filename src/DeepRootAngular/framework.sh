@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-FRAMEWORK_PATH=$(cd $(dirname $0); pwd -P)
+FRAMEWORK_PATH=$(cd "$(dirname "$0")" || exit; pwd -P)
 FRAMEWORK_FILE="${FRAMEWORK_PATH}/Frontend/js/lib/deep-framework.js"
 
 echo "Installing latest deep-framework from GitHub"
