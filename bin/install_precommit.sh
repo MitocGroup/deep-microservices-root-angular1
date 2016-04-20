@@ -1,12 +1,26 @@
 #!/usr/bin/env bash
+#
+# Created by vcernomschi on 10/06/2015
+#
 
-source $(dirname $0)/_head.sh
+path=$(cd $(dirname $0); pwd -P)
+npm=$(which npm)
+brew=$(which brew)
 jscs=`which jscs`
 
 if [ -z ${jscs} ]; then
-    assure_npm
+    if [ -z ${npm} ]; then
+        if [ -z ${brew} ]; then
+            echo "You may install Homebrew first!"
+            exit 1
+        fi
 
-    ${npm} -g install jscs
+        echo "Installing nodejs..."
+        ${brew} install nodejs
+
+        npm=$(which npm)
+    fi
+    ${npm} install jscs -g
 fi
 
 if [ -f ${path}/../.git/hooks/pre-commit ]; then
