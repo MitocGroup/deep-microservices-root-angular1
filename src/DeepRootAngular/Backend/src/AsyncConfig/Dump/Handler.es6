@@ -23,7 +23,6 @@ export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
    */
   handle(request) {
     let logger = this.kernel.get('log');
-    let sharedFs = this.kernel.get('fs').shared();
     let describer = new ServicesDescriber(
       new Property('/', this._getPropertyConfig()),
       this.kernel.config
@@ -36,23 +35,57 @@ export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
         logger.warn(`Error on generating async config.`, errors);
       }
 
-      sharedFs.writeFile(this.kernel.constructor.ASYNC_CONFIG_FILE, JSON.stringify(config), (error) => {
-        if (error) {
-          throw new DeepFramework.Core.Exception.Exception(
-            `Error on persisting ${this.kernel.constructor.ASYNC_CONFIG_FILE} file in shared FS. ${error}`
-          );
-        }
+      console.log(`this.kernel.get('fs').public`, this.kernel.get('fs').public);
 
-        this._invalidateCachedAsyncConfig((error) => {
-          if (error) {
-            logger.warn('Error on invalidating cached async config.', error);
-          } else if (asyncConfig.ready) {
-            this._selfDisable();
-          }
+      this._dumpIntoFs(this.sharedFs, config, () => {
+        this._dumpIntoFs(this.publicRootFs, config, () => {
+          this._invalidateCachedAsyncConfig((error) => {
+            if (error) {
+              logger.warn('Error on invalidating cached async config.', error);
+            } else if (asyncConfig.ready) {
+              this._selfDisable();
+            }
 
-          this.createResponse(config).send();
+            this.createResponse(config).send();
+          });
         });
       });
+    });
+  }
+
+  /**
+   * @returns {S3.FS}
+   */
+  get sharedFs() {
+    return this.kernel.get('fs').shared();
+  }
+
+  /**
+   * @returns {S3.FS}
+   */
+  get publicRootFs() {
+    let publicFsClone = this.kernel.get('fs').public.clone();
+
+    publicFsClone.path = '/';
+
+    return publicFsClone;
+  }
+
+  /**
+   * @param {S3.FS} fs
+   * @param {Object} config
+   * @param {Function} cb
+   * @private
+   */
+  _dumpIntoFs(fs, config, cb) {
+    fs.writeFile(this.kernel.constructor.ASYNC_CONFIG_FILE, JSON.stringify(config), (error) => {
+      if (error) {
+        throw new DeepFramework.Core.Exception.Exception(
+          `Error on persisting ${this.kernel.constructor.ASYNC_CONFIG_FILE} file in ${fs.constructor.name} FS. ${error}`
+        );
+      }
+
+      cb();
     });
   }
 
