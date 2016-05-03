@@ -35,8 +35,6 @@ export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
         logger.warn(`Error on generating async config.`, errors);
       }
 
-      console.log(`this.kernel.get('fs').public`, this.kernel.get('fs').public);
-
       this._dumpIntoFs(this.sharedFs, config, () => {
         this._dumpIntoFs(this.publicRootFs, config, () => {
           this._invalidateCachedAsyncConfig((error) => {
