@@ -1,3 +1,4 @@
+/* global DeepFramework */
 'use strict';
 'format es6';
 
@@ -10,18 +11,18 @@ export function registerModules(moduleNames) {
   registerModule(moduleNames);
 
   angular.module(moduleName).run(['$rootScope', (...args) => {
-    return new Run(...args);
-  },
-  ])
-  .config(['$locationProvider', function(...args) {
-    let kernel = DeepFramework.Kernel;
-    let isLocalhost = kernel.isLocalhost;
-    let ngRewrite = kernel.config.globals.engine.ngRewrite;
+      return new Run(...args);
+    },
+    ])
+    .config(['$locationProvider', '$compileProvider', (...args) => {
+      let kernel = DeepFramework.Kernel;
+      let isLocalhost = kernel.isLocalhost;
+      let env = kernel.env;
+      let ngRewrite = kernel.config.globals.engine.ngRewrite;
 
-    return new Config(isLocalhost, ngRewrite, ...args);
-  },
-  ]);
+      return new Config(isLocalhost, env, ngRewrite, ...args);
+    },
+    ]);
 }
 
 registerModules();
-
