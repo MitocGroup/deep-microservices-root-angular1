@@ -1,3 +1,4 @@
+/* global DeepFramework */
 'use strict';
 'format es6';
 
