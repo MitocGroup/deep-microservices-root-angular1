@@ -29,10 +29,11 @@ after_success:
   - npm run coverage
 
 env:
+  # Paralize backend and fronted test
+  - TEST_SUITE=backend
+  - TEST_SUITE=frontend
   global:
-    # Paralize backend and fronted test
-    - TEST_SUITE=backend
-    - TEST_SUITE=frontend
+
     # JSPM_GITHUB_AUTH_TOKEN=[secured]
     - secure: Wt8Fb3bnT2NR1vT2Q0FsTu9y94O9K9uys6ayCvl8J/YiLkKjYSK4ovaXOoHzxyXqVjjmoj8G9vS8GcahNU7SdD2vBS6r9/9I/Vm16lO/vjuW7eGnEmmEheZxLPgU1XgkcuFfejqtToNlTGyEpSQlcFqUk4sKAseHCrePKdu3rQGuKN7rM/GaTWBLVEvF0DQmOIKOd5n644grNB/VVBwwMB0iJR0GbmFIP/KJSTeajDfwFUEZFDqyvtzCSonANxDCeXesXFAihuJJ2uzfTGd6X0Fw5fmjP6qeMV0qCvs3opgqyoR8l5HPhcyQtLonk7h8B1gANRzw5PVIqLhYJWn/oAbh77NxWOUTlmHJ4xxj9vFL0hQcONVJd/XSbivLmtiCXMb5n3tjA25YCATpOSZmhRR26wpkaiWZC4TLp6MWMRwpi3mBv5RUudsL1ZJLgTMjy/QVa2+Tg/Lyfkmie3zYUNWLXuI6/LWrNdERByR4KhaSE5thF2UjwV+KhrDUCkOVQuLWO4zJb653qRxTKqRUASCRR++YzSWA7cr9ICDW8helAHH2YfmEjpFqC7D4Wv4ehmkeEjD1IwIMd+a9Q9sVwJzVjRA8njHgEtBfqsyoVbK/CBEbPDhZjzJ6yiuOzAQ5Mlp5M3M9jCO95bfr6cwYIAHG77Lf/9xZk1Ap0O2ZCz8=
     # CODACY_PROJECT_TOKEN=[secured]
