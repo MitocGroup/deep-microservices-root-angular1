@@ -3,13 +3,22 @@ sudo: false
 node_js:
   - '4.3'
   - '4.4'
-#  - '5.10'
 
 cache:
   directories:
     - $(npm root -g)
     - node_modules
     - deep_modules
+    - $(npm config get prefix)/bin/deepify
+    - $(npm config get prefix)/bin/jspm
+    - $(npm config get prefix)/bin/karma
+    - $(npm config get prefix)/bin/_mocha
+    - $(npm config get prefix)/bin/istanbul
+
+env:
+  # Paralize backend and fronted test
+  - TEST_SUITE=backend
+  - TEST_SUITE=frontend
 
 branches:
   only:
@@ -20,7 +29,6 @@ branches:
 
 before_install:
   - cp bin/test/package.json .
-  - npm run prepare
 
 after_success:
   - npm run coverage
