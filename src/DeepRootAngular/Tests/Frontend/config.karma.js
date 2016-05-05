@@ -22,9 +22,6 @@ module.exports = function(config) {
 
       'Tests/Frontend/lib/DeepFramework.js',
       'Tests/Frontend/mock/lib/DeepFramework.js',
-
-      //include the directory where directive templates are stored.
-      //'**/views/directives/*.html',
     ],
 
     // jspm configuration
