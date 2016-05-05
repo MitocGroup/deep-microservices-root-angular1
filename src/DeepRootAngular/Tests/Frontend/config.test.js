@@ -19,6 +19,7 @@ System.config({
     "babel": "npm:babel-core@6.8.0",
     "babel-runtime": "npm:babel-runtime@6.6.1",
     "core-js": "npm:core-js@1.2.6",
+    "css": "github:systemjs/plugin-css@0.1.13",
     "es5-shim": "github:es-shims/es5-shim@4.4.0",
     "es6-shim": "github:es-shims/es6-shim@0.34.0",
     "github:angular-ui/ui-router@0.2.15": {
