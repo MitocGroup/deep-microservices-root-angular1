@@ -22,9 +22,6 @@ module.exports = function(config) {
 
       'Tests/Frontend/lib/DeepFramework.js',
       'Tests/Frontend/mock/lib/DeepFramework.js',
-
-      //include the directory where directive templates are stored.
-      '**/views/directives/*.html',
     ],
 
     // jspm configuration
@@ -41,7 +38,7 @@ module.exports = function(config) {
         'Frontend/js/app/index.js',
       ],
       serveFiles: [
-        'Frontend/js/app/**/*.js',
+        'Frontend/**/*.js',
       ],
     },
 
@@ -59,7 +56,6 @@ module.exports = function(config) {
     preprocessors: {
       'Frontend/js/app/!(index).js': ['coverage'],
       'Tests/Frontend/angular/**/*.spec.js': ['babel'],
-      '**/views/directives/*.html': 'ng-html2js',
     },
 
     babelPreprocessor: {
@@ -67,10 +63,6 @@ module.exports = function(config) {
         sourceMap: 'inline',
         modules: 'system',
       },
-    },
-
-    ngHtml2JsPreprocessor: {
-      moduleName: 'templates',
     },
 
     plugins: [
