@@ -4,15 +4,12 @@ node_js:
   - '4.3'
   - '4.4'
 cache:
+  edge: true
   directories:
     - $(npm root -g)
     - node_modules
     - deep_modules
-    - $(npm config get prefix)/bin/deepify
-    - $(npm config get prefix)/bin/jspm
-    - $(npm config get prefix)/bin/karma
-    - $(npm config get prefix)/bin/_mocha
-    - $(npm config get prefix)/bin/istanbul
+    - $(npm config get prefix)/bin
 branches:
   only:
     - master
@@ -34,4 +31,6 @@ env:
     - secure: 
         JPDpkgI8/BEII4eoCv8h4YJYGb+YO64EvbCsUpAFB1QYddb/MrFXnEAOQqnFi9GKd3LqtW1CX40waTKyVg7tAbEoenQn2x3BVKgeDwzAytsXQaILmlxfdR/N1oBYpZevTJCkBTwec0KqZzaYwL6XTvBHE3wMERvZIAhzXH8U/cX/GO78oUA4xg5datkBi2/lx0GHAgVI8/5k3OO8UpGN4ZPQXlS/I787fW98Rusrs8uw/ph+UauI3fW+6mSVZwGHbs4E1ijud4S84bGnBv+4iWgMarmpL/oLzX/ArCy9hKA35GVPlotHZ3bPYpi+rar12iySfMGDUcCmkkAf45ZfNXhyNIXD72uIeKt41DXqp1OzI0m4M59NChy5AYzhytX49kma21i/MnLweanwywL6nGVtaq7UVeSPsp8x19Pjo69QWpgND8iKuU+6hCK08tjSA4iv/UuYvmXM3P9yya3Ppa/mU1q1C9K0WXWFSbW8rSqpHnLG76jDTbN5g5uu+TIzB65ylNb6h8izlpKWww8fzrMAIvWMp4GvnT+3/RAIwIb9nsaqefDxEVaUXvUWG8yciiDn1yQKQAN3J694o7PPloU/AAQVdbARZPvQKesodwu/aaaCel647wV4sXl8nOqpbDT66iqwDUiIwj3BAF5GOU3Xs9A+PVS/A7aDrt8Mk/E=
 notifications:
-  slack: 'mitocgroup:4ZPhXmOpgk5QK6bvZdhL9r2x'
+  slack:
+    secure: 
+      QngHK9dDhEi2gkfEtfm6GupPCieQuEkU4AOTHJGv5GVG7M3etAZT/FOaObKolYGcjuZ+kvCcdd/DWB2ucezEvEUzmVlBb/fp4TgP/wC46MRK0mCpuxUHH0f3EqCy6MeY7BcuJ9GIYrqDks/QzDLQjYNXOBsxl83rxX+BBrLPWWHBR1HKZu++ox6DhErlNp4KQ+iEWplaZ4CQE/kmYurxFrOdNVmGaJMLrfyVwvp9asPkM02w7lNE3H/hrG6TX2OrgVCdA4JwATCyEV2Yt7+L1k+2VP9ND6up9wRvyUWbqkz8yhx3O8L1pEXaPMI5VDZklVALTDLi1cdvwyMUx9JJ3VHKvwRusa2KiwqXy5lOVIqoPDCU/RHeArNRIUmM/lDJ2LBKf+oerjWq7wrTdH3vZ9Zxi49G4NOeBIjrEylu61pqaJxAF4pW0MfiEZm4a/LmuVL2IKakLgx05h1EbHxZSNYzguwNdaiLnStDZbwyQBnN59mAM5ZNXc2vTM3BfYKAE1qlDo1bChX31SNB5TTRrYlQVeJvW22mJ/eTabgQA9lpT4+IIZTkWdl+LGDTVLXkPoCUVSz9JdM4kNooFcNxkahWB+Z5fQMuUlHxBaepLQV3RLNzKdh+6KZX2ICYiIOb/oVdI222lxhgcLWDSqresi5IBuR6hxfYNjW6I094irg=
