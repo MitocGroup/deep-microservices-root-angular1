@@ -1,6 +1,6 @@
 {
   "identifier": "deep-root-angular",
-  "name": "DeepRootAngular",
+  "name": "deep-root-angular",
   "description": "Manages root structure of a microservice based on AngularJS framework, as well as loads AngularUI Router module.",
   "version": "0.0.1",
   "propertyRoot": true,
