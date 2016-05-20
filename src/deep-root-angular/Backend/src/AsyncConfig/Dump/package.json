@@ -25,9 +25,5 @@
     "deep-framework": "^1.x.x",
     "deep-package-manager": "^1.x.x"
   },
-  "devDependencies": {
-  },
-  "preferGlobal": false,
-  "private": true,
-  "analyze": true
+  "private": true
 }
