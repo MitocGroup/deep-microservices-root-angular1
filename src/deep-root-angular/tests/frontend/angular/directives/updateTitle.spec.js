@@ -1,6 +1,6 @@
 'use strict';
 
-import moduleName from '../../../../Frontend/js/app/name';
+import moduleName from '../../../../frontend/js/app/name';
 
 describe('Directives', function() {
 
