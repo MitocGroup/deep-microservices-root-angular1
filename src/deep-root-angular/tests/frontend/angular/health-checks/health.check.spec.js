@@ -1,7 +1,7 @@
 'use strict';
 
-import moduleName from '../../../../Frontend/js/app/name';
-import {bootstrap} from '../../../../Frontend/js/app/index';
+import moduleName from '../../../../frontend/js/app/name';
+import {bootstrap} from '../../../../frontend/js/app/index';
 
 describe('Health checks', function() {
   it('Should load angular library', function() {

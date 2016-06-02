@@ -3,11 +3,11 @@
 'use strict';
 
 import chai from 'chai';
-import bootstrap from '../../../node_modules/Scheduler/Rule/bootstrap';
+import bootstrap from '../../../node_modules/async-config/dump/bootstrap';
 
 // @todo: Add more advanced tests
 suite('Bootstraps', () => {
-  test(' bootstrap exists in deep-system-scheduler-rule module', () => {
+  test(' bootstrap exists in deep-system-async-config-dump module', () => {
     chai.expect(bootstrap).to.be.an('object');
   });
 });

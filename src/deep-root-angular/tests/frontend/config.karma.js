@@ -15,30 +15,29 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'Tests/Frontend/vendor/github/angular/bower-angular@1.4.0/angular.js',
-      'Tests/Frontend/vendor/github/angular/bower-angular-mocks@1.4.4/angular-mocks.js',
-      'Tests/Frontend/vendor/github/angular-ui/ui-router@0.2.15/angular-ui-router.js',
-      'Tests/Frontend/vendor/system.js',
-
-      'Tests/Frontend/lib/DeepFramework.js',
-      'Tests/Frontend/mock/lib/DeepFramework.js',
+      'tests/frontend/vendor/github/angular/bower-angular@1.4.0/angular.js',
+      'tests/frontend/vendor/github/angular/bower-angular-mocks@1.4.4/angular-mocks.js',
+      'tests/frontend/vendor/github/angular-ui/ui-router@0.2.15/angular-ui-router.js',
+      'tests/frontend/vendor/system.js',
+      'tests/frontend/lib/DeepFramework.js',
+      'tests/frontend/mock/lib/DeepFramework.js',
     ],
 
     // jspm configuration
     jspm: {
-      config: 'Tests/Frontend/config.test.js',
-      packages: 'Tests/Frontend/vendor/',
+      config: 'tests/frontend/config.test.js',
+      packages: 'tests/frontend/vendor/',
       useBundles: false,
       paths: {
-        'github:*': 'Tests/Frontend/vendor/github/*.js',
-        'npm:*': 'Tests/Frontend/vendor/npm/*.js',
+        'github:*': 'tests/frontend/vendor/github/*.js',
+        'npm:*': 'tests/frontend/vendor/npm/*.js',
       },
       loadFiles: [
-        'Tests/Frontend/angular/**/*.spec.js',
-        'Frontend/js/app/index.js',
+        'tests/frontend/angular/**/*.spec.js',
+        'frontend/js/app/index.js',
       ],
       serveFiles: [
-        'Frontend/**/*.js',
+        'frontend/**/*.js',
       ],
     },
 
@@ -54,8 +53,8 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'Frontend/js/app/!(index).js': ['coverage'],
-      'Tests/Frontend/angular/**/*.spec.js': ['babel'],
+      'frontend/js/app/!(index).js': ['coverage'],
+      'tests/frontend/angular/**/*.spec.js': ['babel'],
     },
 
     babelPreprocessor: {
@@ -92,11 +91,11 @@ module.exports = function(config) {
       reporters: [
         {
           type: 'json',
-          dir: 'Tests/Frontend/coverage/',
+          dir: 'tests/frontend/coverage/',
         },
         {
           type: 'lcov',
-          dir: 'Tests/Frontend/coverage/',
+          dir: 'tests/frontend/coverage/',
         },
       ],
     },

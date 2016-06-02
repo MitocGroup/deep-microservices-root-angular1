@@ -7,7 +7,7 @@
       "scope": "private",
       "cron": "0/10 * * * ? *",
       "methods": ["GET"],
-      "source": "src/AsyncConfig/Dump"
+      "source": "src/async-config/dump"
     }
   },
   "scheduler": {
@@ -17,7 +17,7 @@
       "forceUserIdentity": false,
       "scope": "private",
       "methods": ["GET"],
-      "source": "src/Scheduler/Rule"
+      "source": "src/scheduler/rule"
     }
   }
 }
