@@ -3,7 +3,7 @@
 'use strict';
 
 import chai from 'chai';
-import Handler from '../../../node_modules/AsyncConfig/Dump/Handler';
+import Handler from '../../../node_modules/async-config/dump/Handler';
 
 // @todo: Add more advanced tests
 suite('Handlers', () => {
