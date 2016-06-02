@@ -3,7 +3,7 @@
 'use strict';
 
 import chai from 'chai';
-import Handler from '../../../node_modules/Scheduler/Rule/Handler';
+import Handler from '../../../node_modules/scheduler/rule/Handler';
 
 // @todo: Add more advanced tests
 suite('Handlers', () => {
