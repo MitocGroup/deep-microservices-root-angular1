@@ -16,6 +16,14 @@
       "default": "@deep-root-angular:img/favicon.ico",
       "example": "@deep-root-angular:img/favicon.ico"
     },
+    "storage|eventualConsistency|offloaderEndpoint": {
+      "displayName": "Eventual consistency offloading backend endpoint",
+      "type": "string",
+      "required": false,
+      "pattern": "^@[^:]+:[^:]+:[^:]+$",
+      "default": "@deep-root-angular:ddb-eventual-consistency:pool-queue",
+      "example": "@deep-root-angular:ddb-eventual-consistency:pool-queue"
+    },
     "pageLoader|src": {
       "displayName": "Page loader source",
       "type": "string",
@@ -50,7 +58,7 @@
       "displayName": "Enable Search cluster?",
       "type": "boolean",
       "required": false,
-      "example": false   
+      "example": false
     },
     "logDrivers|sentry|dsn": {
       "displayName": "Sentry DSN",
