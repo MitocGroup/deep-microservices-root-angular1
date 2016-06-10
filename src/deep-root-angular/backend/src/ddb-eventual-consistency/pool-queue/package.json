@@ -1,0 +1,31 @@
+{
+  "name": "deep-system-ddb-eventual-consistency-pool-queue",
+  "version": "0.0.1",
+  "description": "Pool the SQS queue for DynamoDB offloaded operations on alarm received from CloudWatchAlarm through an SNS topic",
+  "author": "Mitoc Group <hello@mitocgroup.com>",
+  "contributors": [
+    {
+      "name": "Alexander Cucer",
+      "email": "acucer@mitocgroup.com"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/MitocGroup/deep-microservices-root-angularjs/issues"
+  },
+  "keywords": [
+    "DEEP",
+    "Config",
+    "SQS",
+    "EventualConsistency",
+    "DynamoDB",
+    "CloudWatchAlarm"
+  ],
+  "scripts": {
+    "postinstall": "npm run compile",
+    "compile": "deepify compile es6 `pwd`"
+  },
+  "dependencies": {
+    "deep-framework": "^1.x.x"
+  },
+  "private": true
+}
