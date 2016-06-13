@@ -20,35 +20,75 @@ export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
    * @param {*} request
    */
   handle(request) {
-    let queueUrl = this._getQueueUrl(request);
+    let queueName = this._getQueueNameFromRequest(request);
+    let queueUrl = this._getQueueUrlFromConfig(queueName);
     let sqs = this._sqs(queueUrl);
     let dynamo = this._dynamo;
 
-    this._poolQueueUntilEmpty(queueUrl, sqs, dynamo);
+    this._poolQueueUntilEmpty(queueUrl, sqs, dynamo).then(() => {
+      let cloudWatch = this._cloudWatch(queueUrl);
+
+      // @see deep-package-manager (queueName === alarmName)
+      this._resetAlarmState(cloudWatch, queueName)
+        .then(this.createResponse({}).send);
+    });
+  }
+
+  /**
+   * Avoid keeping alarm state infinitely in case there are
+   * messages pushed before the alarm switching to OK state
+   *
+   * @param {AWS.CloudWatch|*} cloudWatch
+   * @param {String} alarmName
+   * @returns {Promise|*}
+   */
+  _resetAlarmState(cloudWatch, alarmName) {
+    return new Promise(resolve => {
+      let payload = {
+        AlarmName: alarmName,
+        StateReason: 'Resetting alarm state to avoid keeping it on ALARM infinitely',
+        StateValue: 'OK'
+      };
+
+      cloudWatch.setAlarmState(payload, error => {
+        if (error) {
+          console.error(error);
+        }
+
+        resolve();
+      });
+    });
   }
 
   /**
    * @param {String} queueUrl
    * @param {AWS.SQS|*} sqs
    * @param {AWS.DynamoDB|*} dynamo
+   * @returns {Promise|*}
    * @private
    */
   _poolQueueUntilEmpty(queueUrl, sqs, dynamo) {
-    this._poolQueueItems(sqs, queueUrl)
-      .catch(error => this.createError(error))
-      .then(queueMessages => {
-        if (queueMessages.length <= 0) {
-          return this.createResponse({}).send();
-        }
+    return new Promise(resolve => {
+      this._poolQueueItems(sqs, queueUrl)
+        .catch(error => {
+          console.error(error);
 
-        Promise
-          .all(queueMessages.map(
-            queueMsg => this._manageQueueMsg(sqs, queueUrl, dynamo, queueMsg)
-          ))
-          .then(() => {
-            this._poolQueueUntilEmpty(queueUrl, sqs, dynamo);
-          });
-      });
+          resolve();
+        })
+        .then(queueMessages => {
+          if (queueMessages.length <= 0) {
+            return resolve();
+          }
+
+          Promise
+            .all(queueMessages.map(
+              queueMsg => this._manageQueueMsg(sqs, queueUrl, dynamo, queueMsg)
+            ))
+            .then(() => {
+              this._poolQueueUntilEmpty(queueUrl, sqs, dynamo).then(resolve);
+            });
+        });
+    });
   }
 
   /**
@@ -157,6 +197,16 @@ export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
 
   /**
    * @param {String} queueUrl
+   * @returns {AWS.CloudWatch|*}
+   */
+  _cloudWatch(queueUrl) {
+    let region = this._getRegionFromSqsQueueUrl(queueUrl);
+
+    return new AWS.CloudWatch({region,});
+  }
+
+  /**
+   * @param {String} queueUrl
    * @returns {String}
    * @private
    */
@@ -176,10 +226,8 @@ export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
    * @private
    * @todo: pre-validate event data
    */
-  _getQueueUrl(request) {
-    let queueName = JSON.parse(request.getParam('Records')[0].Sns.Message).Trigger.Dimensions[0].value;
-
-    return this._getQueueUrlFromConfig(queueName);
+  _getQueueNameFromRequest(request) {
+    return JSON.parse(request.getParam('Records')[0].Sns.Message).Trigger.Dimensions[0].value;
   }
 
   /**
