@@ -104,7 +104,7 @@ export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
       lambdaName: this.context.functionName
     };
 
-    lambda.request(payload).useDirectCall().send();
+    lambda.request(payload).useDirectCall().send(cb);
   }
 
   /**
