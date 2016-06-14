@@ -1,12 +1,12 @@
 {
-  "name": "deep-system-async-config-dump",
+  "name": "deep-system-ddb-eventual-consistency-listen-queues",
   "version": "0.0.1",
-  "description": "Checks delayed services availability and dump a config file",
+  "description": "Listen for SQS offload queues messages",
   "author": "Mitoc Group <hello@mitocgroup.com>",
   "contributors": [
     {
-      "name": "Marcel Goria",
-      "email": "mgoria@mitocgroup.com"
+      "name": "Alexander Cucer",
+      "email": "acucer@mitocgroup.com"
     }
   ],
   "bugs": {
@@ -15,15 +15,16 @@
   "keywords": [
     "DEEP",
     "Config",
-    "AsyncConfig"
+    "SQS",
+    "EventualConsistency",
+    "DynamoDB"
   ],
   "scripts": {
     "postinstall": "npm run compile",
     "compile": "deepify compile es6 `pwd`"
   },
   "dependencies": {
-    "deep-framework": "^1.x.x",
-    "deep-package-manager": "^1.x.x"
+    "deep-framework": "^1.x.x"
   },
   "private": true
 }
