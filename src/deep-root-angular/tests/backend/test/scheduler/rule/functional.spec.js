@@ -15,7 +15,7 @@ suite('Functional tests', () => {
 
   suiteSetup((done) => {
 
-    const TEST_ASSERTS_DIR = '../../../../test/scheduler/rule/test-asserts';
+    const TEST_ASSERTS_DIR = './test-asserts';
     let dirPath = path.join(__dirname, TEST_ASSERTS_DIR);
 
     dir.readFiles(dirPath, {
@@ -70,7 +70,7 @@ suite('Functional tests', () => {
 
     for (i = 0; i < inputEventsArray.length; i++) {
       let eventStr = '\'' + inputEventsArray[i].replace(/(\r\n|\n|\r)/gm, '') + '\'';
-      let cmd = `deepify run-lambda ../../../node_modules/deep-system-scheduler-rule/ -e=${eventStr} -p`;
+      let cmd = `deepify lambda ../../../node_modules/scheduler/rule/ -e=${eventStr} -p`;
       let runLambdaCmd = new Exec(cmd);
 
       runLambdaCmd.cwd = __dirname;
