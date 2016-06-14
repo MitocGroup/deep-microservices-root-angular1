@@ -18,6 +18,7 @@ export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
 
   /**
    * @param {*} request
+   * @todo refactor for direct call only (avoid SQS->SNS invokations)
    */
   handle(request) {
     let queueName = this._getQueueNameFromRequest(request);
@@ -27,6 +28,10 @@ export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
 
     this._poolQueueUntilEmpty(queueUrl, sqs, dynamo).then(() => {
       let cloudWatch = this._cloudWatch(queueUrl);
+
+      if (!this._isInvokedBySns(request)) {
+        return this.createResponse({}).send();
+      }
 
       // @see deep-package-manager (queueName === alarmName)
       this._resetAlarmState(cloudWatch, queueName)
@@ -41,6 +46,7 @@ export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
    * @param {AWS.CloudWatch|*} cloudWatch
    * @param {String} alarmName
    * @returns {Promise|*}
+   * @deprecated
    */
   _resetAlarmState(cloudWatch, alarmName) {
     return new Promise(resolve => {
@@ -222,11 +228,25 @@ export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
 
   /**
    * @param {*} request
+   * @returns {Boolean}
+   */
+  _isInvokedBySns(request) {
+    return !!request.getParam('Records');
+  }
+
+  /**
+   * @param {*} request
    * @returns {String}
    * @private
    * @todo: pre-validate event data
    */
   _getQueueNameFromRequest(request) {
+    if (!this._isInvokedBySns(request)) {
+      return request.getParam('queueName');
+    }
+
+    // @deprecated left for back compatibility only
+    // SQS event delivered through SNS topic
     return JSON.parse(request.getParam('Records')[0].Sns.Message).Trigger.Dimensions[0].value;
   }
 
