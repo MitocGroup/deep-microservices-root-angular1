@@ -6,5 +6,7 @@
 
 [ -e "./node_modules/scheduler" ] && rm -f "./node_modules/scheduler";
 
+[ -e "./node_modules/ddb-eventual-consistency" ] && rm -f "./node_modules/ddb-eventual-consistency";
+
 
 exit 0
