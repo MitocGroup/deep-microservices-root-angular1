@@ -33,26 +33,26 @@ inside Git Bash.
 ### Step 2. Install Microservice(s) Locally
 
 ```bash
-deepify install github://MitocGroup/deep-microservices-todo-app ~/deep-microservices-todo-app
+deepify install github://MitocGroup/deep-microservices-todomvc ~/deep-microservices-todomvc
 ```
 
 > Path parameter in all `deepify` commands is optional and if not specified, assumes current
-working directory. Therefore you can skip `~/deep-microservices-todo-app` by executing
-`mkdir ~/deep-microservices-todo-app && cd ~/deep-microservices-todo-app` before `deepify install`.
+working directory. Therefore you can skip `~/deep-microservices-todomvc` by executing
+`mkdir ~/deep-microservices-todomvc && cd ~/deep-microservices-todomvc` before `deepify install`.
 
 ### Step 3. Run Microservice(s) in Development
 
 ```bash
-deepify server ~/deep-microservices-todo-app -o
+deepify server ~/deep-microservices-todomvc -o
 ```
 
 > When this step is finished, you can open in your browser the link *http://localhost:8000*
-and enjoy the deep-microservices-todo-app running locally.
+and enjoy the deep-microservices-todomvc running locally.
 
 ### Step 4. Deploy Microservice(s) to Production
 
 ```bash
-deepify deploy ~/deep-microservices-todo-app
+deepify deploy ~/deep-microservices-todomvc
 ```
 
 > Amazon CloudFront distribution takes up to 20 minutes to provision, therefore don’t worry
@@ -61,7 +61,7 @@ if it returns an HTTP error in the first couple of minutes.
 ### Step 5. Remove Microservice(s) from Production
 
 ```bash
-deepify undeploy ~/deep-microservices-todo-app
+deepify undeploy ~/deep-microservices-todomvc
 ```
 
 > Amazon CloudFront distribution takes up to 20 minutes to unprovision. That's why `deepify`
@@ -86,7 +86,7 @@ Interested in contributing to deep-microservices-root-angular?
 Looking for web applications that use (or are similar to) deep-microservices-root-angular?
 
 - Hello World: https://hello.deep.mg | https://github.com/MitocGroup/deep-microservices-helloworld
-- Todo App: https://todo.deep.mg | https://github.com/MitocGroup/deep-microservices-todo-app
+- Todo App: https://todo.deep.mg | https://github.com/MitocGroup/deep-microservices-todomvc
 - Enterprise Software Marketplace: https://www.deep.mg
 
 
