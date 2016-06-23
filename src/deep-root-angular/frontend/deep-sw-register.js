@@ -18,7 +18,7 @@
         console.warn('Error while retrieving service worker instance ', error.message);
       });
   } else {
-    console.warn('Sorry, not ServiceWorker feature, maybe enable it?');
+    console.warn('Sorry, ServiceWorker feature not found, maybe enable it?');
     console.warn('http://jakearchibald.com/2014/using-serviceworker-today/');
   }
 })();
