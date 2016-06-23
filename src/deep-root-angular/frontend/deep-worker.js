@@ -1,6 +1,6 @@
 'use strict';
 
-var cacheId = 'deep-service-cache';
+var cacheId = 'deep-service-cache-<deep-hash>';
 var CACHE_FLAG = '<script>window.DEEP_SERVICE_CACHE_FLAG=true;</script>';
 
 function getCache() {
