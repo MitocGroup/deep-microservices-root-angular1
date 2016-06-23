@@ -65,6 +65,12 @@
       "required": false,
       "example": false
     },
+    "serviceWorker|cache|enabled": {
+      "displayName": "Enable Service Worker html caching?",
+      "type": "boolean",
+      "required": false,
+      "example": false
+    },
     "api|cache|enabled": {
       "displayName": "Enable API caching?",
       "type": "boolean",
