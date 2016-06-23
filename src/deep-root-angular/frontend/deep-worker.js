@@ -26,8 +26,8 @@ function HtmlPage(htmlPage) {
   };
 
   this.ensureCacheFlag = function() {
-    this.htmlPage = this.htmlPage.indexOf(CACHE_FLAG) !== -1
-      ? this.htmlPage :
+    this.htmlPage = this.htmlPage.indexOf(CACHE_FLAG) !== -1 ?
+      this.htmlPage :
       (this.htmlPage + CACHE_FLAG);
 
     return this;
@@ -40,7 +40,7 @@ function HtmlPage(htmlPage) {
         'Content-Type': 'text/html'
       }
     });
-  }
+  };
 }
 
 this.addEventListener('fetch', function(event) {
@@ -63,8 +63,8 @@ this.addEventListener('fetch', function(event) {
                 .toResponse();
             });
           });
-        })
-      })
+        });
+      });
     });
 
   event.respondWith(responsePromise);
