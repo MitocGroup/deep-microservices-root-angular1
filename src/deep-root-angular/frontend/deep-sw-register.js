@@ -9,7 +9,7 @@
     ServiceWorker
       .getRegistration('/')
       .then(function(swRegistration) {
-        return swRegistration || ServiceWorker.register('/deep-worker.js', { scope: '/' });
+        return swRegistration || ServiceWorker.register('/deep-sw.js', { scope: '/' });
       })
       .then(function(swRegistration) {
         window.deepSwInstance = swRegistration.installing || swRegistration.active;
