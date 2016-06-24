@@ -53,7 +53,7 @@ function HtmlPage(htmlPage) {
 }
 
 this.addEventListener('fetch', function(event) {
-  let request = event.request;
+  var request = event.request;
 
   var responsePromise = fetch(request)
     .then(function (response) {
