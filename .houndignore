@@ -5,4 +5,4 @@ scripts/
 browser/
 test/
 docs-api/
-deep-worker.js
+deep-sw.js
