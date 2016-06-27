@@ -85,6 +85,20 @@ this.addEventListener('fetch', function(event) {
   event.respondWith(responsePromise);
 });
 
+this.addEventListener('activate', function(event) {
+  var flushCacheStorage = caches.keys().then(function(keys) {
+    var premises = keys.map(function(key) {
+      return key !== cacheId && /^deep\-service\-cache/.test(cacheId) ?
+        caches.delete(key) :
+        Promise.resolve(true);
+    });
+
+    return Promise.all(premises);
+  });
+
+  event.waitUntil(flushCacheStorage);
+});
+
 this.onmessage = function(event) {
   var data = event.data;
   var key = data.key;
