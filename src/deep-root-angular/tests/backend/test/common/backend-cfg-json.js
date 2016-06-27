@@ -26,67 +26,67 @@ export default {
             'source': {
               'api': null,
               'original': 'arn:aws:lambda:::function:deep-root-angular-async-config-dump',
-              '_localPath': './src/deep-root-angular/backend/src/async-config/dump/bootstrap.js'
-            }
-          }
+              '_localPath': './src/deep-root-angular/backend/src/async-config/dump/bootstrap.js',
+            },
+          },
         },
         'scheduler': {
           'rule': {
             'type': 'lambda',
             'methods': [
-              'GET'
+              'GET',
             ],
             'forceUserIdentity': false,
             'apiCache': {
               'enabled': false,
-              'ttl': -1
+              'ttl': -1,
             },
             'region': 'us-east-1',
             'scope': 'private',
             'source': {
               'api': null,
               'original': 'arn:aws:lambda:::function:deep-root-angular-scheduler-rule',
-              '_localPath': './src/deep-root-angular/backend/src/scheduler/rule/bootstrap.js'
-            }
-          }
+              '_localPath': './src/deep-root-angular/backend/src/scheduler/rule/bootstrap.js',
+            },
+          },
         },
         'ddb-eventual-consistency': {
           'pool-queue': {
             'type': 'lambda',
             'methods': [
-              'GET'
+              'GET',
             ],
             'forceUserIdentity': false,
             'apiCache': {
               'enabled': false,
-              'ttl': -1
+              'ttl': -1,
             },
             'region': 'us-east-1',
             'scope': 'private',
             'source': {
               'api': null,
               'original': 'arn:aws:lambda:::function:deep-root-angular-ddb-eventual-consistency-pool-queue',
-              '_localPath': './src/deep-root-angular/backend/src/ddb-eventual-consistency/pool-queue/bootstrap.js'
-            }
-          }
-        }
-      }
-    }
+              '_localPath': './src/deep-root-angular/backend/src/ddb-eventual-consistency/pool-queue/bootstrap.js',
+            },
+          },
+        },
+      },
+    },
   },
   'globals': {
     'favicon': '@deep-root-angular:img/favicon.ico',
     'storage': {
       'eventualConsistency': {
-        'offloaderEndpoint': '@deep-root-angular:ddb-eventual-consistency:pool-queue'
-      }
+        'offloaderEndpoint': '@deep-root-angular:ddb-eventual-consistency:pool-queue',
+      },
     },
     'pageLoader': {
       'src': '@deep-root-angular:img/loader.gif',
-      'alt': 'Loading...'
+      'alt': 'Loading...',
     },
     'engine': {
-      'ngRewrite': '/'
-    }
+      'ngRewrite': '/',
+    },
   },
   'searchDomains': {},
   'validationSchemas': [],
@@ -98,20 +98,20 @@ export default {
   'timestamp': 1467026134560,
   'buckets': {
     'temp': {
-      'name': 'dfgfh575676jghjhgjhg6876876njhgjgjh-temp'
+      'name': 'dfgfh575676jghjhgjhg6876876njhgjgjh-temp',
     },
     'public': {
-      'name': 'dfgfh575676jghjhgjhg6876876njhgjgjh-public'
+      'name': 'dfgfh575676jghjhgjhg6876876njhgjgjh-public',
     },
     'private': {
-      'name': 'dfgfh575676jghjhgjhg6876876njhgjgjh-private'
+      'name': 'dfgfh575676jghjhgjhg6876876njhgjgjh-private',
     },
     'shared': {
-      'name': 'dfgfh575676jghjhgjhg6876876njhgjgjh-shared'
-    }
+      'name': 'dfgfh575676jghjhgjhg6876876njhgjgjh-shared',
+    },
   },
   'tablesNames': {},
   'cacheDsn': '',
   'name': 'deep-root-angular-async-config-dump',
-  'path': './src/deep-root-angular/backend/src/async-config/dump/bootstrap.js'
+  'path': './src/deep-root-angular/backend/src/async-config/dump/bootstrap.js',
 }
