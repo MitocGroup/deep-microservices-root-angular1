@@ -1,4 +1,4 @@
-/* jshint undef: false, validthis:true */
+/* jshint undef: false */
 
 'use strict';
 
