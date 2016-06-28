@@ -1,6 +1,4 @@
 (function() {
-  /*jshint validthis:true */
-
   'use strict';
 
   window.deepSwInstance = null;
