@@ -114,4 +114,4 @@ export default {
   'cacheDsn': '',
   'name': 'deep-root-angular-async-config-dump',
   'path': './src/deep-root-angular/backend/src/async-config/dump/bootstrap.js',
-}
+};
