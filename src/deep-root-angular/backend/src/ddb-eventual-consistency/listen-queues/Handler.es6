@@ -1,3 +1,5 @@
+/*jshint expr: true */
+
 /**
  * Created by acucer on 6/14/16.
  */
