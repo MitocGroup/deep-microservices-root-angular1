@@ -1,5 +1,5 @@
 /* jshint undef: false */
-/* eslint max-len: [1] */
+/* eslint max-len: [0] */
 
 'use strict';
 
