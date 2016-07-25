@@ -1,4 +1,5 @@
 /* jshint undef: false */
+/* eslint max-len: [1] */
 
 'use strict';
 

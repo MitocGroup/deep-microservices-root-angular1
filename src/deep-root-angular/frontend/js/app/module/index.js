@@ -11,8 +11,8 @@ export function registerModules(moduleNames) {
   registerModule(moduleNames);
 
   angular.module(moduleName).run(['$rootScope', (...args) => {
-      return new Run(...args);
-    },
+    return new Run(...args);
+  },
     ])
     .config(['$locationProvider', '$compileProvider', (...args) => {
       let kernel = DeepFramework.Kernel;
