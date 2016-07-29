@@ -2,8 +2,6 @@
 'use strict';
 'format es6';
 
-/* eslint callback-return: [0] */
-
 var deepKernel = DeepFramework.Kernel;
 
 System.config({
