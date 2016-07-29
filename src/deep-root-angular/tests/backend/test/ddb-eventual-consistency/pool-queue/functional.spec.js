@@ -1,4 +1,3 @@
-/*jshint evil:true */
 
 'use strict';
 
