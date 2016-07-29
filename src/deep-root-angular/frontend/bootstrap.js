@@ -37,46 +37,10 @@ deepKernel.bootstrap(function() {
     }));
   });
 
-  Promise.all(scripts).then(afterBootstrapLoad);
-
-  function afterBootstrapLoad() {
-    var configPromise = [];
-    
-    for (var callback of config) {
-      if (typeof callback === 'function') {
-        configPromise.push(Promise.resolve(callback()));
-      }
-    }
-
-    Promise.all(configPromise).then(afterConfigLoad);
-  }
-
-  function afterConfigLoad() {
-    var loadFirstPromise = [];
-    
-    for (var callback of loadFirst) {
-      if (typeof callback === 'function') {
-        loadFirstPromise.push(Promise.resolve(callback()));
-      }
-    }
-
-    Promise.all(loadFirstPromise).then(afterLoadFirst);
-  }
-
-  function afterLoadFirst() {
-    System.import('/js/lib/css.js').then(function(script) {
-      System.set('css', System.newModule(script));
-      System.import('/js/lib/angular.js').then(function(angular) {
-        System.set('angular', System.newModule(angular));
-        System.import('/js/lib/angular-ui-router.js').then(afterAngularLoad);
-      });
-    });
-  }
-
   function afterAngularLoad() {
     System.set('angular-ui-router', System.newModule(angular.module('ui.router')));
     var moduleScripts = [];
-    
+
     for (var callback of modules) {
       if (typeof callback === 'function') {
         moduleScripts.push(Promise.resolve(callback()));
@@ -94,4 +58,40 @@ deepKernel.bootstrap(function() {
       });
     });
   }
+
+  function afterLoadFirst() {
+    System.import('/js/lib/css.js').then(function(script) {
+      System.set('css', System.newModule(script));
+      System.import('/js/lib/angular.js').then(function(angular) {
+        System.set('angular', System.newModule(angular));
+        System.import('/js/lib/angular-ui-router.js').then(afterAngularLoad);
+      });
+    });
+  }
+
+  function afterConfigLoad() {
+    var loadFirstPromise = [];
+
+    for (var callback of loadFirst) {
+      if (typeof callback === 'function') {
+        loadFirstPromise.push(Promise.resolve(callback()));
+      }
+    }
+
+    Promise.all(loadFirstPromise).then(afterLoadFirst);
+  }
+
+  function afterBootstrapLoad() {
+    var configPromise = [];
+
+    for (var callback of config) {
+      if (typeof callback === 'function') {
+        configPromise.push(Promise.resolve(callback()));
+      }
+    }
+
+    Promise.all(configPromise).then(afterConfigLoad);
+  }
+
+  Promise.all(scripts).then(afterBootstrapLoad);
 });
