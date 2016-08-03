@@ -21,4 +21,4 @@
     console.warn('Sorry, ServiceWorker feature not found, maybe enable it?');
     console.warn('http://jakearchibald.com/2014/using-serviceworker-today/');
   }
-})();
+}());

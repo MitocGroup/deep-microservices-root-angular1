@@ -139,7 +139,7 @@ export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
         }
       } catch (error) {
 
-        // TODO: handle such kind of exceptions
+        // todo: handle such kind of exceptions
         return this._deleteQueueMsg(sqs, queueUrl, queueMsg.ReceiptHandle)
           .then(() => reject(error))
           .catch(() => reject(error));
