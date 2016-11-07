@@ -41,7 +41,13 @@ deepKernel.bootstrap(function() {
     System.set('angular-ui-router', System.newModule(angular.module('ui.router')));
     var moduleScripts = [];
 
-    for (var callback of modules) {
+    for (var index in modules) {
+      if (!modules.hasOwnProperty(index)) {
+        continue;
+      }
+
+      var callback = modules[index];
+
       if (typeof callback === 'function') {
         moduleScripts.push(Promise.resolve(callback()));
       }
@@ -72,7 +78,13 @@ deepKernel.bootstrap(function() {
   function afterConfigLoad() {
     var loadFirstPromise = [];
 
-    for (var callback of loadFirst) {
+    for (var index in loadFirst) {
+      if (!loadFirst.hasOwnProperty(index)) {
+        continue;
+      }
+
+      var callback = loadFirst[index];
+
       if (typeof callback === 'function') {
         loadFirstPromise.push(Promise.resolve(callback()));
       }
@@ -84,7 +96,13 @@ deepKernel.bootstrap(function() {
   function afterBootstrapLoad() {
     var configPromise = [];
 
-    for (var callback of config) {
+    for (var index in config) {
+      if (!config.hasOwnProperty(index)) {
+        continue;
+      }
+
+      var callback = config[index];
+
       if (typeof callback === 'function') {
         configPromise.push(Promise.resolve(callback()));
       }
