@@ -94,6 +94,7 @@ export default {
   'forceUserIdentity': false,
   'microserviceIdentifier': 'deep-root-angular',
   'awsAccountId': 123456789012,
+  'apiVersion': 'v1',
   'appIdentifier': 'f401e45654645cxzcz6891676f6953a2b44b6',
   'timestamp': 1467026134560,
   'buckets': {

@@ -134,6 +134,7 @@ export default class extends DeepFramework.Core.AWS.Lambda.Runtime {
       env: this.kernel.config.env,
       appIdentifier: this.kernel.config.appIdentifier,
       awsAccountId: this.kernel.config.awsAccountId,
+      apiVersion: this.kernel.config.apiVersion,
       aws: {
         accessKeyId: AWS.config.credentials.accessKeyId,
         secretAccessKey: '',
