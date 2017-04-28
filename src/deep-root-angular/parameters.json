@@ -149,6 +149,12 @@
       "type": "string",
       "required": false,
       "example": "@deep-microapp:user:custom-message"
+    },
+    "xRay|enabled": {
+      "displayName": "Enable X-Ray?",
+      "type": "boolean",
+      "required": false,
+      "example": false
     }
   }
 }
