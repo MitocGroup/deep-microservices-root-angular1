@@ -1,5 +1,5 @@
-Contributing to deep-microservices-root-angular
-===============================================
+Contributing to deep-microservices-root-angular1
+================================================
 
 This project is open source, and we encourage developers to contribute. Here below is the easiest way to do so:
 

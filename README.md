@@ -1,10 +1,10 @@
-deep-microservices-root-angular
-===============================
+deep-microservices-root-angular1
+================================
 
-[![Build Status](https://travis-ci.org/MitocGroup/deep-microservices-root-angular.svg?branch=master)](https://travis-ci.org/MitocGroup/deep-microservices-root-angular)
+[![Build Status](https://travis-ci.org/MitocGroup/deep-microservices-root-angular1.svg?branch=master)](https://travis-ci.org/MitocGroup/deep-microservices-root-angular1)
 [![Test Coverage](https://codeclimate.com/repos/578a001c60cba500670067b2/badges/ec814eb407b79c52dee0/coverage.svg)](https://codeclimate.com/repos/578a001c60cba500670067b2/coverage)
 
-deep-microservices-root-angular is the fundamental building block used by cloud-native web applications
+deep-microservices-root-angular1 is the fundamental building block used by cloud-native web applications
 built on top of [DEEP Framework](https://github.com/MitocGroup/deep-framework) and
 [Angular JS](https://angularjs.org). This microservice provides the root structure of the web application 
 that is developed using Angular framework and AngularUI module.
@@ -70,20 +70,20 @@ command checks every 30 seconds if it's disabled and when successful, removes it
 
 ## Developer Resources
 
-Having questions related to deep-microservices-root-angular?
+Having questions related to deep-microservices-root-angular1?
 
 - Ask questions: https://stackoverflow.com/questions/tagged/deep-framework
 - Chat with us: https://mitocgroup.slack.com/messages/general
 - Send an email: feedback@mitocgroup.com
 
-Interested in contributing to deep-microservices-root-angular?
+Interested in contributing to deep-microservices-root-angular1?
 
-- Contributing: https://github.com/MitocGroup/deep-microservices-root-angular/blob/master/CONTRIBUTING.md
-- Issue tracker: https://github.com/MitocGroup/deep-microservices-root-angular/issues
-- Releases: https://github.com/MitocGroup/deep-microservices-root-angular/releases
-- Roadmap: https://github.com/MitocGroup/deep-microservices-root-angular/blob/master/ROADMAP.md
+- Contributing: https://github.com/MitocGroup/deep-microservices-root-angular1/blob/master/CONTRIBUTING.md
+- Issue tracker: https://github.com/MitocGroup/deep-microservices-root-angular1/issues
+- Releases: https://github.com/MitocGroup/deep-microservices-root-angular1/releases
+- Roadmap: https://github.com/MitocGroup/deep-microservices-root-angular1/blob/master/ROADMAP.md
 
-Looking for web applications that use (or are similar to) deep-microservices-root-angular?
+Looking for web applications that use (or are similar to) deep-microservices-root-angular1?
 
 - Hello World: https://hello.deep.mg | https://github.com/MitocGroup/deep-microservices-helloworld
 - Todo App: https://todo.deep.mg | https://github.com/MitocGroup/deep-microservices-todomvc
@@ -97,4 +97,4 @@ This repository is being sponsored by:
 - [AdTechMedia](https://www.adtechmedia.io)
 
 This code can be used under MIT license:
-> See [LICENSE](https://github.com/MitocGroup/deep-microservices-root-angular/blob/master/LICENSE) for more details.
+> See [LICENSE](https://github.com/MitocGroup/deep-microservices-root-angular1/blob/master/LICENSE) for more details.

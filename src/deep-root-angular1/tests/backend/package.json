@@ -1,7 +1,7 @@
 {
-  "name": "deep-root-angular-backend-test",
+  "name": "deep-root-angular1-backend-test",
   "version": "0.0.1",
-  "description": "Description of deep-root-angular-backend-test",
+  "description": "Description of deep-root-angular1-backend-test",
   "scripts": {
     "preinstall": "bash node-bin/preinstall.sh",
     "install": "bash node-bin/install.sh",

@@ -13,16 +13,16 @@
       "type": "string",
       "required": false,
       "pattern": "^@[^:]+:(?:\\/?[\\w\\-\\d]+)+\\.(ico)$",
-      "default": "@deep-root-angular:img/favicon.ico",
-      "example": "@deep-root-angular:img/favicon.ico"
+      "default": "@deep-root-angular1:img/favicon.ico",
+      "example": "@deep-root-angular1:img/favicon.ico"
     },
     "pageLoader|src": {
       "displayName": "Page loader source",
       "type": "string",
       "required": false,
       "pattern": "^@[^:]+:(?:\\/?[\\w\\-\\d]+)+\\.(png|jpg|gif)$",
-      "default": "@deep-root-angular:img/loader.gif",
-      "example": "@deep-root-angular:img/loader.gif"
+      "default": "@deep-root-angular1:img/loader.gif",
+      "example": "@deep-root-angular1:img/loader.gif"
     },
     "pageLoader|alt": {
       "displayName": "Page loader alternate text",

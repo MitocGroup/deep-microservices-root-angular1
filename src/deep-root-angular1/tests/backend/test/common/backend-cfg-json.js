@@ -6,7 +6,7 @@ export default {
   'identityPoolId': 'us-east-1:xxxxxxxx-xxxx-xxxx-xxxx-xx0123456789',
   'identityProviders': '',
   'microservices': {
-    'deep-root-angular': {
+    'deep-root-angular1': {
       'isRoot': true,
       'parameters': {},
       'resources': {
@@ -26,7 +26,7 @@ export default {
             'source': {
               'api': null,
               'original': 'arn:aws:lambda:::function:deep-root-angular-async-config-dump',
-              '_localPath': './src/deep-root-angular/backend/src/async-config/dump/bootstrap.js',
+              '_localPath': './src/deep-root-angular1/backend/src/async-config/dump/bootstrap.js',
             },
           },
         },
@@ -46,7 +46,7 @@ export default {
             'source': {
               'api': null,
               'original': 'arn:aws:lambda:::function:deep-root-angular-scheduler-rule',
-              '_localPath': './src/deep-root-angular/backend/src/scheduler/rule/bootstrap.js',
+              '_localPath': './src/deep-root-angular1/backend/src/scheduler/rule/bootstrap.js',
             },
           },
         },
@@ -66,7 +66,7 @@ export default {
             'source': {
               'api': null,
               'original': 'arn:aws:lambda:::function:deep-root-angular-ddb-eventual-consistency-pool-queue',
-              '_localPath': './src/deep-root-angular/backend/src/ddb-eventual-consistency/pool-queue/bootstrap.js',
+              '_localPath': './src/deep-root-angular1/backend/src/ddb-eventual-consistency/pool-queue/bootstrap.js',
             },
           },
         },
@@ -74,14 +74,14 @@ export default {
     },
   },
   'globals': {
-    'favicon': '@deep-root-angular:img/favicon.ico',
+    'favicon': '@deep-root-angular1:img/favicon.ico',
     'storage': {
       'eventualConsistency': {
-        'offloaderEndpoint': '@deep-root-angular:ddb-eventual-consistency:pool-queue',
+        'offloaderEndpoint': '@deep-root-angular1:ddb-eventual-consistency:pool-queue',
       },
     },
     'pageLoader': {
-      'src': '@deep-root-angular:img/loader.gif',
+      'src': '@deep-root-angular1:img/loader.gif',
       'alt': 'Loading...',
     },
     'engine': {
@@ -92,7 +92,7 @@ export default {
   'validationSchemas': [],
   'modelsSettings': [],
   'forceUserIdentity': false,
-  'microserviceIdentifier': 'deep-root-angular',
+  'microserviceIdentifier': 'deep-root-angular1',
   'awsAccountId': 123456789012,
   'apiVersion': 'v1',
   'appIdentifier': 'f401e45654645cxzcz6891676f6953a2b44b6',
@@ -114,5 +114,5 @@ export default {
   'tablesNames': {},
   'cacheDsn': '',
   'name': 'deep-root-angular-async-config-dump',
-  'path': './src/deep-root-angular/backend/src/async-config/dump/bootstrap.js',
+  'path': './src/deep-root-angular1/backend/src/async-config/dump/bootstrap.js',
 };
