@@ -63,8 +63,8 @@
       "displayName": "Sentry DSN",
       "type": "string",
       "required": false,
-      "pattern": "^https?://[^:]+(:[^@]+)?@sentry\\.io/[0-9]+$",
-      "example": "https://72kshdbrgkebghkrb34iu5yb3ub:23l5hbk2v2jhg52uygvygvhmgv@sentry.io/45747"
+      "pattern": "^https?:\\/\\/[^:]+(:[^@]+)?@(app\\.getsentry\\.com|sentry\\.io)\\/[0-9]+$",
+      "example": "https://72kshdbrgkebghkrb34iu5yb3ub:23l5hbk2v2jhg52uygvygvhmgv@app.getsentry.com/45747"
     },
     "logDrivers|rum|enabled": {
       "displayName": "Enable Real User Monitoring (RUM)?",
