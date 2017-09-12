@@ -1,6 +1,5 @@
 'use strict';
 
-const chai = require('chai');
 const hookInit = require('../../hook.init');
 
 describe('Check hook.init', () => {
