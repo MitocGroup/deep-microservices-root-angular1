@@ -1,14 +1,11 @@
-/**
- * Created by AlexanderC on 10/6/15.
- */
-
 'use strict';
 
+const path = require('path');
+const { spawn } = require('child_process');
+
 module.exports = function(callback) {
-  var spawn = require('child_process').spawn;
-  var path = require('path');
-  var installation = null;
-  var bashBin = process.env.SHELL || 'bash';
+  let installation = null;
+  let bashBin = process.env.SHELL || 'bash';
 
   if (!/bash/i.test(bashBin)) {
     bashBin = 'bash';

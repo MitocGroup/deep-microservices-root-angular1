@@ -2,7 +2,7 @@ deep-microservices-root-angular1
 ================================
 
 [![Build Status](https://travis-ci.org/MitocGroup/deep-microservices-root-angular1.svg?branch=master)](https://travis-ci.org/MitocGroup/deep-microservices-root-angular1)
-[![Test Coverage](https://codeclimate.com/repos/578a001c60cba500670067b2/badges/ec814eb407b79c52dee0/coverage.svg)](https://codeclimate.com/repos/578a001c60cba500670067b2/coverage)
+[![Test Coverage](https://codeclimate.com/github/MitocGroup/deep-microservices-root-angular1/badges/coverage.svg?maxAge=0)](https://codeclimate.com/github/MitocGroup/deep-microservices-root-angular1)
 
 deep-microservices-root-angular1 is the fundamental building block used by cloud-native web applications
 built on top of [DEEP Framework](https://github.com/MitocGroup/deep-framework) and
